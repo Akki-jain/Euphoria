@@ -177,3 +177,132 @@ img.user{
   line-height: 75px;
   font-size: 16px;
 }
+
+
+input[type=text], select, textarea 
+{
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+input[type=submit] 
+{
+  background-color: #04AA6D;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  cursor: pointer;
+}
+
+input[type=submit]:hover 
+{
+  background-color: #45a049;
+}
+
+.container {
+  border-radius: 5px;
+  background-color: #ffffff;
+  padding: 10px;
+}
+
+.column 
+{
+  float: left;
+  width: 50%;
+  margin-top: 6px;
+  padding: 20px;
+}
+
+
+.row:after 
+{
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+@media screen and (max-width: 600px) 
+{
+  .column, input[type=submit] 
+  {
+    width: 100%;
+    margin-top: 0;
+  }
+}
+
+html, body {
+    margin: 0px;
+}
+
+
+.name-text {
+    font-family: 'Manrope';
+    font-weight: bold;
+    font-size: 2em;
+}
+
+.name-text span {
+    margin-left: 16px;
+}
+
+.buttons 
+{
+    width: 196px;
+    height: 62px;
+    background: #0E1237;
+    border-radius: 8px;
+    margin-right: 25px;
+    color: white;
+}
+
+.footer
+{
+	padding: 40px 0;
+	background-color: #2E1000;
+	width: 100%;
+	height: 120px;
+	text-align: center;
+	position: absolute;
+	margin-bottom: 0;
+}
+
+.footer .social
+{
+	text-align: center;
+	padding-bottom: 24px;
+	color: whitesmoke;
+}
+
+.footer .social a
+{
+	color: whitesmoke;
+	font-size: 22px;
+	border: 2px solid #ccc;
+	width: 40px;
+	height: 30px;
+	line-height: 24px;
+	display: inline-block;
+	text-align: center;
+	border-radius: 90px;
+	opacity: 0.75;
+	margin: 0 8px;
+	padding-top: 6px;
+}
+
+.footer .social a:hover
+{
+	opacity: 0.9;
+}
+
+.footer .euph
+{
+	text-align: center;
+	margin-top: -20px;
+	font-size: 24px;
+	color: whitesmoke;
+}
