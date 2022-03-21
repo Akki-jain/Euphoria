@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="design.css">
+    <link rel="icon" type="image/x-icon" href="icons/favicon.ico">
+    <title>Euphoria | Login </title>
+</head>
+<body>
+
+    <div class="topnav">
+        <form class="example" action="action_page.php">
+        <a href="index.html" style = "color:FE7E6D; font-size:28px; margin-top: 12px;"><img src="images/Euphoria1.png" height=40 width=40 valign=middle>&ensp;Euphoria</a>
+        <input type="text" placeholder="Search..">
+        <button type="submit"><i class="fa-search"><img src="icons/search.svg" width="20" height="20" valign="middle"/></i></button>
+        <a href="abc.html"><img src="icons/cart.svg" height="50" width="70" class="cart"></a>
+        <a href="login.html"><img src="icons/user.svg" height="65" width="60" class="user"></a>
+        </form>
+    </div>
+
+    <ul>
+        
+        <li><a href="goods.html">Essential Goods</a></li>
+        <li><a href="hospitalservices.html">Hospital Services</a></li>
+        <li><a href="transport.html">Transport</a></li>
+        <li><a href="covid19test.html">Covid-19 Test</a></li>
+        <li><a href="bookanurse.html">Book A Nurse</a></li>
+        <li><a href="donation.html">Donation</a></li>
+        <li><a href="helpdesk.html">Help Desk</a></li>
+        <li><a href="about.html">About Us</a></li>
+      </ul>
+      <div class="body1">
+		<div class="signup">
+			<center><img src="images/Euphoria1.png" height=75 width=75 valign=bottom><font size=7 color=FE7E6D>Euphoria</font></center><br><br>
+    <form>
+        Enter your Name: &emsp;&emsp;&emsp;&emsp;&emsp;<input type="name" name="first" id="first" placeholder="First Name" onblur="validate1()"><label></label> <input type="name" name="last" id="last" placeholder="Last Name" onblur="return validate2()"><br><br>
+        Enter your DOB:&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;<input type="date" name="dob" width="500px"><br><br>
+        Select your Gender: &emsp;&emsp;&emsp;&ensp;<input type="radio" name="gender" id="gender" value="Male"><label>Male </label>
+        <input type="radio" name="gender" value="Female" id="gender"><label>Female </label>
+        <input type="radio" name="gender" value="Others" id="gender"><label>Others</label><br><br>
+        Enter the Username:&emsp;&emsp;&emsp;&ensp;&ensp;<input type="username" name="username" id="username" style="width: 200px; text-align: center;"><br><br>
+        Enter the Password: &emsp;&emsp;&emsp;&ensp;&ensp;<input type="password" name="password" id="password" style="width: 200px; text-align: center;"><br><br>
+        Enter the Confirm Password: &ensp;<input type="password" name="cpassword" id="cpassword" style="width: 200px; text-align: center;"><br><br>
+        <p style="text-align: center;"><input type="checkbox" name="check">Agree to the Terms and Conditions</p><br>
+        <div style="text-align:center;"><button type="button" name="submit" class="button1" onclick="return validate()">Register</button></div>
+        <p style="text-align:center;"><b>OR</b></p>
+        <div style="text-align:center;"><a href="index.html"><button type="button" name="login" class="button2" onclick="location.href='login.html'">Log In</button></a></div><br>
+        <p style="font-size: 12px; text-align: center;">Do you want to Sign Up using Gmail? <a href="https://accounts.google.com/signin/v2/identifier?service=accountsettings&continue=https%3A%2F%2Fmyaccount.google.com%2F&ec=GAlAwAE&flowName=GlifWebSignIn&flowEntry=AddSession">Sign Up</a></p>	
+    </form>
+		</div>
+
+    </body>
+    </html>
