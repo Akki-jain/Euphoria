@@ -13,13 +13,6 @@
                 var l=document.getElementById('test').value;
                 var check=document.getElementById('check');
         
-                const access=
-                {
-                    username: "admin",
-                    password: "admin"
-                };
-            if(l<=3)
-            {
                 if((user=="")||(user==null))
                 {
                     var nuser=prompt("Sorry Please Enter a Username!! Please Enter an Username");
@@ -38,15 +31,8 @@
                 }
                 else
                 {
-                    window.location.href = "log.php";
+                    return true;
                 }
-            }
-            else
-            {
-                alert("You Have entered the Wrong Password or Username Thrice");
-                return false;
-            }
-            }
             </script>
 </head>
 <body>
@@ -76,7 +62,7 @@
     <div class="login">
         <img src="images/Euphoria1.png" height=75 width=75 valign=bottom><font size=7 color=FE7E6D>Euphoria</font>
     <br><br><br>
-        <form method="POST" onsubmit="return validate()">
+        <form method="POST" action="log.php">
             <input type="username" name="username" class="input" id="username"placeholder="Enter Username" style="width: 200px; text-align: center;"><br><br>
             <input type="password" name="password" class="input" id="password" placeholder="Enter Password" style="width: 200px; text-align: center;"><br>
             <br><p><input type="checkbox" name="check" id="check" style="text-align: center;">Agree to the Terms and Conditions</p><br>

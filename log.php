@@ -4,7 +4,7 @@
 
 		$uname=$_POST['username'];
 		$passw=$_POST['password'];
-		$sql="select * from users where username= '$uname'AND password='$passw'";
+		$sql="select * from user_details where username= '$uname'AND password='$passw'";
 
         $result = mysqli_query($con, $sql);  
         $row = mysqli_fetch_array($result, MYSQLI_ASSOC);  
@@ -16,8 +16,7 @@
         }  
         else
         {  
-            $_SESSION["error"]="Invalid Username or Password"; 
-            header("Location: log.html");
+            echo "Invalid Username or Password"; 
         }     
 ?>
 
