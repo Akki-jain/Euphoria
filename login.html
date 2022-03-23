@@ -5,6 +5,49 @@
     <link rel="stylesheet" href="design.css">
     <link rel="icon" type="image/x-icon" href="icons/favicon.ico">
     <title>Euphoria | Login </title>
+    <script type="text/JavaScript">
+            function validate()
+            {
+                var user=document.getElementById('username').value;
+                var pass=document.getElementById('password').value;
+                var l=document.getElementById('test').value;
+                var check=document.getElementById('check');
+        
+                const access=
+                {
+                    username: "admin",
+                    password: "admin"
+                };
+            if(l<=3)
+            {
+                if((user=="")||(user==null))
+                {
+                    var nuser=prompt("Sorry Please Enter a Username!! Please Enter an Username");
+                    document.getElementById('username').value=nuser;
+                    return false;
+                }
+                else if((pass=="")||(pass==null))
+                {
+                    alert("Sorry Please Enter a Password");
+                    return false;
+                }
+                else if(check.checked==false)
+                {
+                    alert("Please Click on Agree on Terms and Conditions");
+                    return false;
+                }
+                else
+                {
+                    window.location.href = "log.php";
+                }
+            }
+            else
+            {
+                alert("You Have entered the Wrong Password or Username Thrice");
+                return false;
+            }
+            }
+            </script>
 </head>
 <body>
 
@@ -33,72 +76,17 @@
     <div class="login">
         <img src="images/Euphoria1.png" height=75 width=75 valign=bottom><font size=7 color=FE7E6D>Euphoria</font>
     <br><br><br>
-        <form method="POST" action="log.php" onsubmit="return validate()">
+        <form method="POST" onsubmit="return validate()">
             <input type="username" name="username" class="input" id="username"placeholder="Enter Username" style="width: 200px; text-align: center;"><br><br>
             <input type="password" name="password" class="input" id="password" placeholder="Enter Password" style="width: 200px; text-align: center;"><br>
             <br><p><input type="checkbox" name="check" id="check" style="text-align: center;">Agree to the Terms and Conditions</p><br>
             <input type =  "submit" id = "btn" value = "Login" class="button1"/> 
+            <input type="hidden" id="test" value="1">
             <p><b>OR</b></p><br>
             <a href="signup.html"><button type="button" name="sign" class="button2">Sign Up</button></a><br><br>
             <p style="font-size: 12px; text-align: center;">Do you want to Sign Up using Gmail? <a href="https://accounts.google.com/signin/v2/identifier?service=accountsettings&continue=https%3A%2F%2Fmyaccount.google.com%2F&ec=GAlAwAE&flowName=GlifWebSignIn&flowEntry=AddSession">Sign Up</a></p>
         </form>
     </div>
-
-        <script type="text/JavaScript">
-            function validate()
-            {
-                var user=document.getElementById('username').value;
-                var pass=document.getElementById('password').value;
-                var l=document.getElementById('la').value;
-                var l1=document.getElementById('laa').value;
-                var check=document.getElementById('check');
-        
-                const access=
-                {
-                    username: "admin",
-                    password: "admin"
-                };
-            if(l<=3)
-            {
-                if((user=="")||(user==null))
-                {
-                    var nuser=prompt("Sorry Please Enter a Username!! Please Enter an Username");
-                    document.getElementById('username').value=nuser;
-                    return false;
-                }
-                else if((pass=="")||(pass==null))
-                {
-                    alert("Sorry Please Enter a Password");
-                    return false;
-                }
-                else if(check.checked==false)
-                {
-                    alert("Please Click on Agree on Terms and Conditions");
-                    return false;
-                }
-                else
-                {
-                    if((user==access.username)&&(pass==access.password))
-                    {
-                        alert("Successfully Logged In");
-                        return true;
-                    }
-                    else
-                    {
-                        alert("Invalid Password or Username "+l);
-                        l++;
-                        document.getElementById('la').value=l;
-                        return false
-                    }
-                }
-            }
-            else
-            {
-                alert("You Have entered the Wrong Password or Username Thrice");
-                return false;
-            }
-            }
-            </script>
 
     </body>
     </html>
