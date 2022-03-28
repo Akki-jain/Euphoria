@@ -4,19 +4,19 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="design.css">
     <link rel="icon" type="image/x-icon" href="icons/favicon.ico">
-    <title>Euphoria | About Us</title>
+    <title>Euphoria | Help Desk</title>
 </head>
 <body>
 
-    <div class="topnav">
-        <form class="example" action="action_page.php">
-        <a href="index.html" style = "color:FE7E6D; font-size:28px; margin-top: 12px;"><img src="images/Euphoria1.png" height=40 width=40 valign=middle>&ensp;Euphoria</a>
-        <input type="text" placeholder="Search..">
-        <button type="submit"><i class="fa-search"><img src="icons/search.svg" width="20" height="20" valign="middle"/></i></button>
-        <a href="abc.html"><img src="icons/cart.svg" height="50" width="70" class="cart"></a>
-        <a href="abc.html"><img src="icons/user.svg" height="65" width="60" class="user"></a>
-        </form>
-    </div>
+  <div class="topnav">
+    <form class="example" action="action_page.php">
+    <a href="index.html" style = "color:FE7E6D; margin-top: 12px;"><img src="images/Euphoria1.png" height=60 width=120 valign=middle></a>
+    <input type="text" placeholder="Search..">
+    <button type="submit"><i class="fa-search"><img src="icons/search.svg" width="20" height="20" valign="middle"></i></button>
+    <a href="abc.html"><img src="icons/cart.svg" height="50" width="70" class="cart"></a>
+    <a href="login.html"><img src="icons/user.svg" height="65" width="60" class="user"></a>
+    </form>
+  </div>
 
     <ul>
         
@@ -39,21 +39,23 @@
         <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15554.223841060108!2d77.6061888!3d12.9362362!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x88518f37b39dabd0!2sChrist%20(Deemed%20to%20be%20University)!5e0!3m2!1sen!2sin!4v1642857008423!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe> -->
   </div>
   <div class="column">
-    <form action="log.php">
-      <label for="fname">First Name</label>
-      <input type="text" id="fname" name="firstname" placeholder="Enter Your First Name">
-      <label for="lname">Last Name</label>
-      <input type="text" id="lname" name="lastname" placeholder="Enter Your Second Name">
-      <label for="country">Country</label>
-      <select id="country" name="country">
+    <form method="POST" action="contact.php" >
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" placeholder="Enter Your Name">
+      <label for="email">Email</label>
+      <input type="text" id="email" name="email" placeholder="Enter Your Email id">
+      <label for="number">Number</label>
+      <input type="text" id="number" name="number" placeholder="Enter Your Mobile Number">
+      <!-- <label for="country">Country</label> -->
+      <!-- <select id="country" name="country">
         <option value="india">India</option>
         <option value="australia">Australia</option>
         <option value="japan">Japan</option>
         <option value="uae">UAE</option>
         <option value="canada">Canada</option>
         <option value="usa">USA</option>
-      </select>
-      <label for="subject">Subject</label>
+      </select> -->
+      <label for="subject">Message</label>
       <textarea id="subject" name="subject" placeholder="Write your Message or query" style="height:170px"></textarea>
       <a href=""><button type="submit" value="Submit" class="button1">Submit</button></a>
     </form>
