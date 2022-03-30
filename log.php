@@ -12,11 +12,15 @@
          
         if($count == 1)
         {  
-            echo "<h1><center> Login successful </center></h1>";  
+            include 'index.html'; 
         }  
         else
         {  
-            echo "Invalid Username or Password"; 
-        }     
+            echo "<center>Invalid Username or Password</center>";
+            echo "<center><button type='button' name='sign' class='button2' onclick='history.back()'>Back</button></center>";
+             
+        }   
+        
+        mysql_close($con);  
 ?>
 
