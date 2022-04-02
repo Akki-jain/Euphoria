@@ -1,35 +1,10 @@
-<html>
 <head>
 	<link rel="stylesheet" type="text/css" href="style1.css">
-  <link rel="stylesheet" type="text/css" href="design1.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 	<script src="script.js" defer></script>
 </head>
 <body>
-
-  <div class="toppp">
-    <form class="exxx" action="action_page.php">
-    <a href="index.html" class="logo"><img src="images/Euphoria1.png" height=60 width=120 valign=middle></a>
-    <input type="text" class="search" placeholder="Search..">
-    <button type="submit" class="fa-search"><i><img src="icons/search.svg" width="20" height="20" valign="middle"></i></button>
-    <a href="abc.html"><img src="icons/cart.svg" height="50" width="70" class="cart"></a>
-    <a href="login.html"><img src="icons/user.svg" height="65" width="60" class="user"></a>
-    </form>
-  </div>
-
-<ul>
-    
-    <li><a href="goods.html">Essential Goods</a></li>
-    <li><a href="hospitalservices.html">Hospital Services</a></li>
-    <li><a href="transport.html">Transport</a></li>
-    <li><a href="covid19test.html">Covid-19 Test</a></li>
-    <li><a href="bookanurse.html">Book A Nurse</a></li>
-    <li><a href="donation.html">Donation</a></li>
-    <li><a href="helpdesk.html">Help Desk</a></li>
-    <li><a href="about.html">About Us</a></li>
-  </ul>
-
-
+<!-- <img src="icons/cross.png" height="15px" width="15px" alt="Exit" style="margin-left: 0; margin-right: 0;"> -->
 <div class="container" id="container">
 	<div class="form-container sign-up-container">
 		<form action="signing.php" method="POST" class="form">
@@ -113,7 +88,7 @@
 		</form>
 	</div>
 	<div class="form-container sign-in-container">
-		<form class="main" action="log.php" method="POST">
+		<form action="log.php" method="POST">
 			<h1>Sign in</h1>
 			<div class="social-container">
 				<a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
@@ -123,7 +98,7 @@
 			<span>or use your account</span>
 			<input type="text" placeholder="Username" name="username" />
 			<input type="password" placeholder="Password" name="password" />
-			<a href="#" class="forgot">Forgot your password?</a>
+			<a href="#">Forgot your password?</a>
 			<button>Sign In</button>
 		</form>
 	</div>
@@ -132,7 +107,7 @@
 			<div class="overlay-panel overlay-left">
 				<h1>Welcome Back!</h1>
 				<p>To keep connected with us please login with your personal info</p>
-				<button class="ghost" id="signIn">Sign In</button>
+				<button class="ghost" id="signIn">Sign In</button><br><br>
 				<img src="images/signin.svg" style="width: 240px;height: 240px;">
 			</div>
 			<div class="overlay-panel overlay-right">
@@ -162,4 +137,3 @@
 </script>
 
 </body>
-</html>

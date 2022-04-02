@@ -16,7 +16,8 @@
         } 
         else 
         {
-        echo "Error: " . $sql . "<br>" . $conn->error;
+        echo "Error: " . $sql . "<br>" . $con->error;
         }
+        
         mysql_close($con);
 ?>
