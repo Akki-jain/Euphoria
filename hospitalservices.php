@@ -33,7 +33,7 @@ function filterTable($query)
 
     <div class="topnav">
         <form class="example" action="action_page.php">
-        <a href="index.html" style = "color:FE7E6D; margin-top: 12px;"><img src="images/Euphoria1.png" height=60 width=120 valign=middle></a>
+        <a href="index.php" style = "color:FE7E6D; margin-top: 12px;"><img src="images/Euphoria1.png" height=60 width=120 valign=middle></a>
         <input type="text" placeholder="Search..">
         <button type="submit"><i class="fa-search"><img src="icons/search.svg" width="20" height="20" valign="middle"></i></button>
         <a href="abc.html"><img src="icons/cart.svg" height="50" width="70" class="cart"></a>
@@ -62,7 +62,7 @@ function filterTable($query)
             <input type="submit" name="search" value="Search" class="button1"><br><br>
             
             <table cellspacing="5px" cellpadding="5px" style="border: 3px solid #FF7527; border-radius: 10px;">
-                <thead  style="border: 2px solid #FF7527;">
+                <thead  s tyle="border: 2px solid #FF7527;">
                 <tr>
                 <th style="width: 60px; border: 2px solid #FF7527; border-radius: 8px;">ID</th>
                 <th style="width: 300px; border: 2px solid #FF7527; border-radius: 8px;">Name</th>
