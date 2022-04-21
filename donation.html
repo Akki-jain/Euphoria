@@ -9,17 +9,16 @@
 <body>
 
     <div class="topnav">
-        <form class="example" action="action_page.php">
+      <form class="example" action="action_page.php">
         <a href="index.php" style = "color:FE7E6D; margin-top: 12px;"><img src="images/Euphoria1.png" height=60 width=120 valign=middle></a>
         <input type="text" placeholder="Search..">
         <button type="submit"><i class="fa-search"><img src="icons/search.svg" width="20" height="20" valign="middle"></i></button>
         <a href="abc.html"><img src="icons/cart.svg" height="50" width="70" class="cart"></a>
         <a href="login.html"><img src="icons/user.svg" height="65" width="60" class="user"></a>
-        </form>
-      </div>
+      </form>
+    </div>
 
     <ul>
-        
         <li><a href="goods.html">Essential Goods</a></li>
         <li><a href="hospitalservices.php">Hospital Services</a></li>
         <li><a href="transport.html">Transport</a></li>
@@ -28,7 +27,42 @@
         <li><a href="donation.html">Donation</a></li>
         <li><a href="helpdesk.html">Help Desk</a></li>
         <li><a href="about.html">About Us</a></li>
-      </ul>
-      <br><br>
-    </body>
-    </html>
+    </ul>
+    <br><br>
+
+      <div class="column">
+        <form method="POST" action="donate.php" >
+          <label for="donor">Donor's Name</label>
+          <input type="text" id="name" name="name" placeholder="Enter Your Name">
+          <label for="demail">Donor's Email</label>
+          <input type="text" id="email" name="email" placeholder="Enter Your Email id">
+          <label for="damount">Amount Donated</label>
+          <input type="text" id="number" name="number" placeholder="Enter The Amount Donated">
+
+          <!-- <label for="country">Country</label>
+          <select id="country" name="country">
+            <option value="india">India</option>
+            <option value="australia">Australia</option>
+            <option value="japan">Japan</option>
+            <option value="uae">UAE</option>
+            <option value="canada">Canada</option>
+            <option value="usa">USA</option>
+          </select> -->
+
+          <label for="remarks">Remarks</label>
+          <textarea id="subject" name="subject" placeholder="Write your Message or query" style="height:170px"></textarea>
+          <a href=""><button type="submit" value="Submit" class="button1" style="margin-left: 620px">Submit</button></a>
+        </form>
+      </div>
+
+      <div class="container">
+        <div class="row">
+          <div class="column"><br><br>
+            <img src="images/undraw_personal_text_re_vqj3.svg" height="500" width="500" style="margin-top:-40px; margin-right:-50px; margin-left: 90px">
+            <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15554.223841060108!2d77.6061888!3d12.9362362!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x88518f37b39dabd0!2sChrist%20(Deemed%20to%20be%20University)!5e0!3m2!1sen!2sin!4v1642857008423!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe> -->
+          </div>
+        </div>
+      </div>
+
+</body>
+</html>
