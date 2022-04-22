@@ -27,7 +27,7 @@
       .card {
         position: relative;
         display: block;
-        height: 100%;  
+        height: 310px;  
         border-radius: calc(var(--curve) * 1px);
         overflow: hidden;
         text-decoration: none;
@@ -178,96 +178,30 @@
         <li class="nav"><a href="about.html">About Us</a></li>
       </ul>
 
-      
-    <?php 
-    include ('connect.php');
-    $res=mysqli_query($con,"select * from product_details;");
-    echo "<table cellpadding=15px>";
-    while($row=mysqli_fetch_array($res))
-    {
-      echo "<tr>";
-      echo "<td>"?><?php echo $row['product_id'];?><?php echo "</td>";
 
-      echo "<td>"?><?php echo $row['pname'];?><?php echo "</td>";
-
-      echo "<td>"?><?php echo $row['qty'];?><?php echo "</td>";
-
-      echo "<td>"?><?php echo $row['cost'];?><?php echo "</td>";
- 
-      echo "<td>"?><?php echo $row['descriptions'];?>><?php echo "</td>";
-
-      echo "<td>"?><img src="<?php echo $row['image'];?>" width=100px height=100px><?php echo "</td>";
-      echo "</tr>";
-    }
-    echo "</table>";
-    ?>
-
+    
         <ul class="cards">
+        <?php 
+          include ('connect.php');
+          $res=mysqli_query($con,"select * from product_details;");
+          while($row=mysqli_fetch_array($res)):?>
           <li>
             <a href="" class="card">
-              <img src="https://i.imgur.com/oYiTqum.jpg" class="card__image" alt="" />
+              <img src=<?php echo $row['image'];?> class="card__image" alt="" />
               <div class="card__overlay">
                 <div class="card__header">
                   <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                     
                   <img class="card__thumb" src="https://i.imgur.com/7D7I6dI.png" alt="" />
                   <div class="card__header-text">
-                    <h3 class="card__title">Jessica Parker</h3>            
-                    <span class="card__status">1 hour ago</span>
+                    <h3 class="card__title"><?php echo $row['pname'];?></h3>            
+                    <span class="card__status"><?php echo $row['cost'];?></span>
                   </div>
                 </div>
-                <p class="card__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, blanditiis?</p>
+                <p class="card__description"><?php echo $row['descriptions'];?></p>
               </div>
             </a>      
           </li>
-          <li>
-            <a href="" class="card">
-              <img src="https://i.imgur.com/2DhmtJ4.jpg" class="card__image" alt="" />
-              <div class="card__overlay">        
-                <div class="card__header">
-                  <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                 
-                  <img class="card__thumb" src="https://i.imgur.com/sjLMNDM.png" alt="" />
-                  <div class="card__header-text">
-                    <h3 class="card__title">kim Cattrall</h3>
-                    <span class="card__status">3 hours ago</span>
-                  </div>
-                </div>
-                <p class="card__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, blanditiis?</p>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="" class="card">
-              <img src="https://i.imgur.com/oYiTqum.jpg" class="card__image" alt="" />
-              <div class="card__overlay">
-                <div class="card__header">
-                  <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                     
-                  <img class="card__thumb" src="https://i.imgur.com/7D7I6dI.png" alt="" />
-                  <div class="card__header-text">
-                    <h3 class="card__title">Jessica Parker</h3>
-                    <!-- <span class="card__tagline">Lorem ipsum dolor sit amet consectetur</span>             -->
-                    <span class="card__status">1 hour ago</span>
-                  </div>
-                </div>
-                <p class="card__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, blanditiis?</p>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="" class="card">
-              <img src="https://i.imgur.com/2DhmtJ4.jpg" class="card__image" alt="" />
-              <div class="card__overlay">
-                <div class="card__header">
-                  <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                 
-                  <img class="card__thumb" src="https://i.imgur.com/sjLMNDM.png" alt="" />
-                  <div class="card__header-text">
-                    <h3 class="card__title">kim Cattrall</h3>
-                    <span class="card__status">3 hours ago</span>
-                  </div>          
-                </div>
-                <p class="card__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, blanditiis?</p>
-              </div>
-            </a>
-          </li>    
+          <?php endwhile;?>   
         </ul>
       <br><br>
     </body>
