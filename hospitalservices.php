@@ -1,26 +1,3 @@
-<?php
-
-if(isset($_POST['search']))
-{
-    $valueToSearch = $_POST['valueToSearch'];
-    $query = "SELECT * FROM hosp_details WHERE hpincode= '$valueToSearch'";
-    $search_result = filterTable($query);
-    
-}
-else 
-{
-    $query = "SELECT * FROM hosp_details";
-    $search_result = filterTable($query);
-}
-
-function filterTable($query)
-{
-    include('connect.php');
-    $filter_Result = mysqli_query($con, $query);
-    return $filter_Result;
-}
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,6 +5,18 @@ function filterTable($query)
     <link rel="stylesheet" href="design.css">
     <link rel="icon" type="image/x-icon" href="icons/favicon.ico">
     <title>Euphoria | Hospitals</title>
+    <style>
+    table {
+        border: 2px solid #FE7E6D;
+        border-collapse:;
+        border-radius: 20px;
+        }
+
+    .datalooks:hover {
+        background-color: #ff9252;
+        color: white;
+        }
+    </style>
 </head>
 <body>
 
@@ -41,17 +30,17 @@ function filterTable($query)
         </form>
       </div>
 
-    <ul>
-        
-        <li><a href="goods.html">Essential Goods</a></li>
-        <li><a href="hospitalservices.php">Hospital Services</a></li>
-        <li><a href="transport.html">Transport</a></li>
-        <li><a href="covid19test.html">Covid-19 Test</a></li>
-        <li><a href="bookanurse.html">Book A Nurse</a></li>
-        <li><a href="donation.html">Donation</a></li>
-        <li><a href="helpdesk.html">Help Desk</a></li>
-        <li><a href="about.html">About Us</a></li>
-      </ul>
+      <ul class="nav">
+         
+         <li class="nav"><a href="goods.php">Essential Goods</a></li>
+         <li class="nav"><a href="hospitalservices.php">Hospital Services</a></li>
+         <li class="nav"><a href="transport.html">Transport</a></li>
+         <li class="nav"><a href="covid19test.php">Covid-19 Test</a></li>
+         <li class="nav"><a href="bookanurse.html">Book A Nurse</a></li>
+         <li class="nav"><a href="donation.html">Donation</a></li>
+         <li class="nav"><a href="helpdesk.html">Help Desk</a></li>
+         <li class="nav"><a href="about.html">About Us</a></li>
+     </ul>
       <br><br>
 
       <form action="hospitalservices.php" method="post">
@@ -61,24 +50,43 @@ function filterTable($query)
             
             <input type="submit" name="search" value="Search" class="button1"><br><br>
             
-            <table cellspacing="5px" cellpadding="5px" style="border: 3px solid #FF7527; border-radius: 10px;">
-                <thead  s tyle="border: 2px solid #FF7527;">
-                <tr>
-                <th style="width: 60px; border: 2px solid #FF7527; border-radius: 8px;">ID</th>
-                <th style="width: 300px; border: 2px solid #FF7527; border-radius: 8px;">Name</th>
-                <th style="width: 300px; border: 2px solid #FF7527; border-radius: 8px;">Type</th>
-                <th style="width: 180px; border: 2px solid #FF7527; border-radius: 8px;">Email ID</th>
-                <th style="width: 110px; border: 2px solid #FF7527; border-radius: 8px;">Number</th>
-                <th style="width: 180px; border: 2px solid #FF7527; border-radius: 8px;">Street</th>
-                <th style="width: 82px; border: 2px solid #FF7527; border-radius: 8px;">City</th>
-                <th style="width: 82px; border: 2px solid #FF7527; border-radius: 8px;">State</th>
-                <th style="width: 82px; border: 2px solid #FF7527; border-radius: 8px;">Pincode</th>
+            <table cellspacing="0px" cellpadding="13px">
+                <tr >
+                <th  style="width: 60px;" class="datalooks">ID</th>
+                <th  style="width: 320px;"class="datalooks">Name</th>
+                <th  style="width: 300px;" class="datalooks">Type</th>
+                <th  style="width: 180px;" class="datalooks">Email ID</th>
+                <th  style="width: 110px;" class="datalooks">Number</th>
+                <th  style="width: 200px;" class="datalooks">Street</th>
+                <th  style="width: 82px;" class="datalooks">City</th>
+                <th  style="width: 112px;" class="datalooks">State</th>
+                <th  style="width: 82px;" class="datalooks">Pincode</th>
                 </tr>
-                </thead>
+                <?php
 
+                if(isset($_POST['search']))
+                {
+                    $valueToSearch = $_POST['valueToSearch'];
+                    $query = "SELECT * FROM hosp_details WHERE hpincode= '$valueToSearch'";
+                    $search_result = filterTable($query);
+                    
+                }
+                else 
+                {
+                    $query = "SELECT * FROM hosp_details";
+                    $search_result = filterTable($query);
+                }
+
+                function filterTable($query)
+                {
+                    include('connect.php');
+                    $filter_Result = mysqli_query($con, $query);
+                    return $filter_Result;
+                }
+                ?>
       <!-- populate table from mysql database -->
                 <?php while($row = mysqli_fetch_array($search_result)):?>
-                <tr>
+                <tr class="datalooks">
                   <td><?php echo $row['hid']??''; ?></td>
                   <td><?php echo $row['hname']??''; ?></td>
                   <td><?php echo $row['htype']??''; ?></td>
@@ -92,5 +100,10 @@ function filterTable($query)
                 <?php endwhile;?>
             </table></center>
         </form>
+
+        
+        
+
     </body>
     </html>
+

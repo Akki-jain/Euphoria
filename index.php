@@ -3,9 +3,10 @@
 <html lang="en">
 <head>
     <title>Euphoria | Home</title>
+    <link rel="stylesheet" href="carousel.css">
     <link rel="stylesheet" href="design.css">
     <link rel="icon" type="image/x-icon" href="icons/favicon.ico">
-
+    
 </head>
 <body>
 
@@ -19,27 +20,41 @@
     </form>
   </div>
 
-    <ul>
-        
-        <li><a href="goods.html">Essential Goods</a></li>
-        <li><a href="hospitalservices.php">Hospital Services</a></li>
-        <li><a href="transport.html">Transport</a></li>
-        <li><a href="covid19test.php">Covid-19 Test</a></li>
-        <li><a href="bookanurse.html">Book A Nurse</a></li>
-        <li><a href="donation.html">Donation</a></li>
-        <li><a href="helpdesk.html">Help Desk</a></li>
-        <li><a href="about.html">About Us</a></li>
-      </ul>
+    <ul class="nav">
+         
+        <li class="nav"><a href="goods.php">Essential Goods</a></li>
+        <li class="nav"><a href="hospitalservices.php">Hospital Services</a></li>
+        <li class="nav"><a href="transport.html">Transport</a></li>
+        <li class="nav"><a href="covid19test.php">Covid-19 Test</a></li>
+        <li class="nav"><a href="bookanurse.html">Book A Nurse</a></li>
+        <li class="nav"><a href="donation.html">Donation</a></li>
+        <li class="nav"><a href="helpdesk.html">Help Desk</a></li>
+        <li class="nav"><a href="about.html">About Us</a></li>
+    </ul>
 
-      <br>
-      <img src="images/carousel.jpg" height="580" width="1500">
+    <br>
+      <!-- <img src="images/carousel.jpg" height="580" width="1500"> -->
 
+      <div class="carcontainer">
+        <div class="carousel">
+          <div class="carousel__face"></div>
+          <div class="carousel__face"></div>
+          <div class="carousel__face"></div>
+          <div class="carousel__face"></div>
+          <div class="carousel__face"></div>
+          <div class="carousel__face"></div>
+          <div class="carousel__face"></div>
+          <div class="carousel__face"></div>
+          <div class="carousel__face"></div>
+        </div>
+      </div>
+      
       <center><input type="button" value="Become Member Now" onclick="location.href = 'signup.html'" class="homebutton"></center>
       <br><br>
       <p align="left" style="margin-top: 200px; margin-left: 50px; font-family:'Lucida Sans'; font-size: medium;"><font color="FF7527">At EUPHORIA</font>, 
         we seek to remove barriers between the specially-abled and the rest of the world. <br>We give an easy-to-use environment with all of the necessary assistance. 
         It could <br>be transportation, a nurse, education, or a hospital. All of these are there at your fingertips.
-    <div style="text-align: right; vertical-align: middle; margin-top: -220px; margin-right: 50px;"><img src="images/undraw_fatherhood_-7-i19.svg" height="350" width=500" valign="middle"></div>
+    <div style="text-align: right; vertical-align: middle; margin-top: -220px; margin-right: 50px; "><img src="images/undraw_fatherhood_-7-i19.svg" height="350" width=500" valign="middle" style="animation: example 5s ease-in 2s infinite alternate;"></div>
     </p>
 
     <br><br>

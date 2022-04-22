@@ -28,6 +28,18 @@ function filterTable($query)
     <link rel="stylesheet" href="design.css">
     <link rel="icon" type="image/x-icon" href="icons/favicon.ico">
     <title>Euphoria | Covid-19</title>
+    <style>
+    table {
+        border: 2px solid #FE7E6D;
+        border-collapse:;
+        border-radius: 20px;
+        }
+
+    .datalooks:hover {
+        background-color: #ff9252;
+        color: white;
+        }
+    </style>
 </head>
 <body>
 
@@ -41,17 +53,17 @@ function filterTable($query)
         </form>
       </div>
 
-    <ul>
-        
-        <li><a href="goods.html">Essential Goods</a></li>
-        <li><a href="hospitalservices.php">Hospital Services</a></li>
-        <li><a href="transport.html">Transport</a></li>
-        <li><a href="covid19test.php">Covid-19 Test</a></li>
-        <li><a href="bookanurse.html">Book A Nurse</a></li>
-        <li><a href="donation.html">Donation</a></li>
-        <li><a href="helpdesk.html">Help Desk</a></li>
-        <li><a href="about.html">About Us</a></li>
-      </ul>
+      <ul class="nav">
+         
+         <li class="nav"><a href="goods.php">Essential Goods</a></li>
+         <li class="nav"><a href="hospitalservices.php">Hospital Services</a></li>
+         <li class="nav"><a href="transport.html">Transport</a></li>
+         <li class="nav"><a href="covid19test.php">Covid-19 Test</a></li>
+         <li class="nav"><a href="bookanurse.html">Book A Nurse</a></li>
+         <li class="nav"><a href="donation.html">Donation</a></li>
+         <li class="nav"><a href="helpdesk.html">Help Desk</a></li>
+         <li class="nav"><a href="about.html">About Us</a></li>
+     </ul>
       <br><br>
 
       <form action="covid19test.php" method="post">
@@ -61,22 +73,22 @@ function filterTable($query)
             
             <input type="submit" name="search" value="Search" class="button1"><br><br>
             
-            <table cellspacing="5px" cellpadding="5px" style="border: 3px solid #FF7527; border-radius: 10px;">
+            <table cellspacing="0px" cellpadding="15px">
                 <thead  style="border: 2px solid #FF7527;">
                 <tr>
-                <th style="width: 60px; border: 2px solid #FF7527; border-radius: 6px;">ID</th>
-                <th style="width: 300px; border: 2px solid #FF7527; border-radius: 6px;">Centre Name</th>
-                <th style="width: 180px; border: 2px solid #FF7527; border-radius: 6px;">Centre Number</th>
-                <th style="width: 360px; border: 2px solid #FF7527; border-radius: 6px;">Address</th>
-                <th style="width: 82px; border: 2px solid #FF7527; border-radius: 6px;">City</th>
-                <th style="width: 82px; border: 2px solid #FF7527; border-radius: 6px;">State</th>
-                <th style="width: 82px; border: 2px solid #FF7527; border-radius: 6px;">Pincode</th>
+                <th style="width: 60px;" class="datalooks">ID</th>
+                <th style="width: 300px;" class="datalooks">Centre Name</th>
+                <th style="width: 180px;" class="datalooks">Centre Number</th>
+                <th style="width: 360px;" class="datalooks">Address</th>
+                <th style="width: 82px;" class="datalooks">City</th>
+                <th style="width: 82px;" class="datalooks">State</th>
+                <th style="width: 82px;" class="datalooks">Pincode</th>
                 </tr>
                 </thead>
 
       <!-- populate table from mysql database -->
                 <?php while($row = mysqli_fetch_array($search_result)):?>
-                <tr>
+                <tr class="datalooks">
                   <td><?php echo $row['covid_id']??''; ?></td>
                   <td><?php echo $row['building']??''; ?></td>
                   <td><?php echo $row['cnumber']??''; ?></td>

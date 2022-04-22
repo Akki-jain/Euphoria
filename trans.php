@@ -18,18 +18,18 @@
         </form>
       </div>
 
-    <ul>
-        
-        <li><a href="goods.html">Essential Goods</a></li>
-        <li><a href="hospitalservices.php">Hospital Services</a></li>
-        <li><a href="transport.html">Transport</a></li>
-        <li><a href="covid19test.html">Covid-19 Test</a></li>
-        <li><a href="bookanurse.html">Book A Nurse</a></li>
-        <li><a href="donation.html">Donation</a></li>
-        <li><a href="helpdesk.html">Help Desk</a></li>
-        <li><a href="about.html">About Us</a></li>
-    </ul>
-
+      <ul class="nav">
+         
+         <li class="nav"><a href="goods.php">Essential Goods</a></li>
+         <li class="nav"><a href="hospitalservices.php">Hospital Services</a></li>
+         <li class="nav"><a href="transport.html">Transport</a></li>
+         <li class="nav"><a href="covid19test.php">Covid-19 Test</a></li>
+         <li class="nav"><a href="bookanurse.html">Book A Nurse</a></li>
+         <li class="nav"><a href="donation.html">Donation</a></li>
+         <li class="nav"><a href="helpdesk.html">Help Desk</a></li>
+         <li class="nav"><a href="about.html">About Us</a></li>
+     </ul>
+     
       <div class="container">
         <div class="row">
           <div class="column"><br><br>
@@ -73,31 +73,30 @@
           <br><br>
           <input type="text" id="name" name="name" placeholder="Amount" value="
 
-<?php include('connect.php');
+          <?php include('connect.php');
 
-$start=$_POST['start'];
-$type=$_POST['type'];
-$destination=$_POST['destination'];
+          $start=$_POST['start'];
+          $type=$_POST['type'];
+          $destination=$_POST['destination'];
 
-$sql1 = "SELECT * from transport where start='$start' && destination='$destination' && type='$type'";
+          $sql1 = "SELECT * from transport where start='$start' && destination='$destination' && type='$type'";
 
-$result = $con->query($sql1);
+          $result = $con->query($sql1);
 
-if ($result->num_rows > 0) 
-{
-  
-  while($row = $result->fetch_assoc())
- {
-     
-      echo $row['amount'];
-  }
-} 
-else {
-    echo "No Driver found! Please try after some time.";
-}
+          if ($result->num_rows > 0) 
+          {
+            
+            while($row = $result->fetch_assoc())
+          {
+              
+                echo $row['amount'];
+            }
+          } 
+          else {
+              echo "No Driver found! Please try after some time.";
+          }
 
-?>">
-
+          ?>">
         </form>
         </div>
        </div>

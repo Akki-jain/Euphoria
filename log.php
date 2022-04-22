@@ -12,7 +12,7 @@
          
         if($count == 1)
         {  
-            include 'index.html'; 
+            include 'index.php'; 
         }  
         else
         {  
