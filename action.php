@@ -1,7 +1,13 @@
 <?php
-	session_start();
+session_start();
+ 
+
 	require 'connect.php';
 
+	if(isset($_SESSION['customer_email']))
+{
+  $user=$_SESSION['customer_email'];
+}
 	// Add products into the cart table
 	if (isset($_POST['pid'])) {
 	  $pid = $_POST['pid'];
@@ -20,8 +26,8 @@
 	  $code = $r['product_id'] ?? '';
 
 	  if (!$code) {
-	    $query = $con->prepare('INSERT INTO cart (product_name,product_price,product_image,qty,total_price,product_id) VALUES (?,?,?,?,?,?)');
-	    $query->bind_param('ssssss',$pname,$pprice,$pimage,$pqty,$total_price,$pcode);
+	    $query = $con->prepare('INSERT INTO cart (product_name,product_price,product_image,qty,total_price,product_id,users) VALUES (?,?,?,?,?,?,?)');
+	    $query->bind_param('sssssss',$pname,$pprice,$pimage,$pqty,$total_price,$pcode,$user);
 	    $query->execute();
 
 	    echo '<div class="alert alert-success alert-dismissible mt-2">
@@ -93,8 +99,8 @@
 
 	  $data = '';
 
-	  $stmt = $con->prepare('INSERT INTO orders (name,email,phone,pmode,products,amount_paid,address)VALUES(?,?,?,?,?,?,?)');
-	  $stmt->bind_param('sssssss',$name,$email,$phone,$pmode,$products,$grand_total,$address);
+	  $stmt = $con->prepare('INSERT INTO orders (name,email,phone,pmode,products,amount_paid,address,users)VALUES(?,?,?,?,?,?,?,?)');
+	  $stmt->bind_param('ssssssss',$name,$email,$phone,$pmode,$products,$grand_total,$address,$user);
 	  $stmt->execute();
 	  $stmt2 = $con->prepare('DELETE FROM cart');
 	  $stmt2->execute();
@@ -109,5 +115,8 @@
 								<h4>Payment Mode : ' . $pmode . '</h4>
 						  </div>';
 	  echo $data;
+	  alert ("Redirecting to HomePage");
+	  sleep(4);
+	  echo "<script>window.open('index.php','_self')</script>";
 	}
 ?>

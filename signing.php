@@ -14,6 +14,7 @@
 	$city=$_POST['city'];
 	$state=$_POST['state'];
 	$pincode=$_POST['pincode'];
+	$today=date("Y-m-d");
 
 	$sql="insert into user_details values ('$user','$pass','$name','$phone','$dob','$email',21,'$category','$hnum','$building','$street','$city','$state','$pincode')";
 	$result = mysqli_query($con, $sql);  
@@ -21,8 +22,10 @@
 	if($result==true)
 	{
 		echo "Added";
+		include 'sign.php';
 	}
 	else
 	{
 		echo "Not Added";
+		include 'sign.php';
 	}

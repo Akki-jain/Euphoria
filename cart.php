@@ -1,7 +1,10 @@
 <?php
-  session_start();
+session_start();
+if(isset($_SESSION['customer_email']))
+{
+  $user=$_SESSION['customer_email'];
+}
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,6 +17,7 @@
   <link rel="icon" type="image/x-icon" href="icons/favicon.ico">
   <link rel="stylesheet" href="design.css">
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css' />
+  <!-- <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css' /> -->
 </head>
 
 <body>
@@ -23,7 +27,15 @@
     <input type="text" placeholder="Search.." name="bar" id="bar">
     <button type="submit"><i class="fa-search"><img src="icons/search.svg" width="20" height="20" valign="middle"></i></button>
     <a class="nav-link" href="cart.php"><img src="icons/cart.svg" height="50" width="70" class="cart"><span id="cart-item" class="badge badge-danger"></span></a>
-    <a href="login.html"><img src="icons/user.svg" height="65" width="60" class="user"></a>
+    <a href="sign.php"><img src="icons/user.svg" height="65" width="60" class="user"></a>
+    <a href="index.php" style="margin-top:24px" ><?php if(isset($_SESSION['customer_email']))
+    {
+      echo "HI, ". strtoupper($user);
+    }
+    else
+    {
+      echo "HI, Guest";
+    } ?></a>
     </form>
   </div>
 
@@ -31,15 +43,14 @@
          
         <li class="nav"><a href="goods.php">Essential Goods</a></li>
         <li class="nav"><a href="hospitalservices.php">Hospital Services</a></li>
-        <li class="nav"><a href="transport.php">Transport</a></li>
+        <li class="nav"><a href="transport.html">Transport</a></li>
         <li class="nav"><a href="covid19test.php">Covid-19 Test</a></li>
         <li class="nav"><a href="bookanurse.html">Book A Nurse</a></li>
         <li class="nav"><a href="donation.html">Donation</a></li>
         <li class="nav"><a href="helpdesk.html">Help Desk</a></li>
         <li class="nav"><a href="about.html">About Us</a></li>
     </ul>
-
-  <div class="container">
+    <div class="container">
     <div class="row justify-content-center">
       <div class="col-lg-10">
         <div style="display:<?php if (isset($_SESSION['showAlert'])) {
@@ -95,14 +106,14 @@
                 </td>
                 <td><i class="fas fa-rupee-sign"></i>&nbsp;&nbsp;<?= number_format($row['total_price'],2); ?></td>
                 <td>
-                  <a href="action.php?remove=<?= $row['product_id'] ?>" class="text-danger lead" onclick="return confirm('Are you sure want to remove this item?');"><i class="fas fa-trash-alt"></i></a>
+                  <a href="action.php?remove=<?= $row['product_id'] ?>" class="text-danger lead" onclick="return confirm('Are you sure want to remove this item?');"><img src="icons/del.png" width=25px/></a>
                 </td>
               </tr>
               <?php $grand_total += $row['total_price']; ?>
               <?php endwhile; ?>
               <tr>
                 <td colspan="3">
-                  <a href="goods.php" class="btn btn-success"><i class="fas fa-cart-plus"></i>&nbsp;&nbsp;Continue
+                  <a href="index.php" class="btn btn-success"><i class="fas fa-cart-plus"></i>&nbsp;&nbsp;Continue
                     Shopping</a>
                 </td>
                 <td colspan="2"><b>Grand Total</b></td>

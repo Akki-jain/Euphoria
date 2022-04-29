@@ -1,5 +1,7 @@
 <?php
 	require 'connect.php';
+  session_start();
+  $user=$_SESSION['customer_email'];
 
 	$grand_total = 0;
 	$allItems = '';
@@ -27,6 +29,7 @@
   <link rel="icon" type="image/x-icon" href="icons/favicon.ico">
   <link rel="stylesheet" href="design.css">
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css' />
+
 </head>
 
 <body>
@@ -36,7 +39,15 @@
     <input type="text" placeholder="Search.." name="bar" id="bar">
     <button type="submit"><i class="fa-search"><img src="icons/search.svg" width="20" height="20" valign="middle"></i></button>
     <a class="nav-link" href="cart.php"><img src="icons/cart.svg" height="50" width="70" class="cart"><span id="cart-item" class="badge badge-danger"></span></a>
-    <a href="login.html"><img src="icons/user.svg" height="65" width="60" class="user"></a>
+    <a href="sign.php"><img src="icons/user.svg" height="65" width="60" class="user"></a>
+    <a href="index.php" style="margin-top:24px" ><?php if(isset($_SESSION['customer_email']))
+    {
+      echo "HI, ". strtoupper($user);
+    }
+    else
+    {
+      echo "HI, Guest";
+    } ?></a>
     </form>
   </div>
 
@@ -44,7 +55,7 @@
          
         <li class="nav"><a href="goods.php">Essential Goods</a></li>
         <li class="nav"><a href="hospitalservices.php">Hospital Services</a></li>
-        <li class="nav"><a href="transport.php">Transport</a></li>
+        <li class="nav"><a href="transport.html">Transport</a></li>
         <li class="nav"><a href="covid19test.php">Covid-19 Test</a></li>
         <li class="nav"><a href="bookanurse.html">Book A Nurse</a></li>
         <li class="nav"><a href="donation.html">Donation</a></li>

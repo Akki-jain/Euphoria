@@ -14,9 +14,9 @@ nextBtns.forEach((btn) => {
   });
 });
 
-prevBtns.forEach((btn) =>
+prevBtns.forEach((btn) => 
 {
-  btn.addEventListener("click", () =>
+  btn.addEventListener("click", () => 
   {
     formStepsNum--;
     updateFormSteps();
@@ -24,9 +24,9 @@ prevBtns.forEach((btn) =>
   });
 });
 
-function updateFormSteps()
+function updateFormSteps() 
 {
-  formSteps.forEach((formStep) =>
+  formSteps.forEach((formStep) => 
   {
     formStep.classList.contains("form-step-active") && formStep.classList.remove("form-step-active");
   });
@@ -34,15 +34,15 @@ function updateFormSteps()
   formSteps[formStepsNum].classList.add("form-step-active");
 }
 
-function updateProgressbar()
+function updateProgressbar() 
 {
-  progressSteps.forEach((progressStep, idx) =>
+  progressSteps.forEach((progressStep, idx) => 
   {
-    if (idx < formStepsNum + 1)
+    if (idx < formStepsNum + 1) 
     {
       progressStep.classList.add("progress-step-active");
-    }
-    else
+    } 
+    else 
     {
       progressStep.classList.remove("progress-step-active");
     }

@@ -1,4 +1,10 @@
-
+<?php
+session_start();
+if(isset($_SESSION['customer_email']))
+{
+  $user=$_SESSION['customer_email'];
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,11 +21,22 @@
     <a href="index.php" style = "color:FE7E6D; margin-top: 12px;"><img src="images/Euphoria1.png" height=60 width=120 valign=middle></a>
     <input type="text" placeholder="Search.." name="bar" id="bar">
     <button type="submit"><i class="fa-search"><img src="icons/search.svg" width="20" height="20" valign="middle"></i></button>
+    
     <a href="cart.php"><img src="icons/cart.svg" height="50" width="70" class="cart"></a>
-    <a href="login.html"><img src="icons/user.svg" height="65" width="60" class="user"></a>
+    
+    <a href="sign.php"><img src="icons/user.svg" height="65" width="60" class="user"></a>
+    <a href="home.php" style="margin-top:24px" ><?php if(isset($_SESSION['customer_email']))
+    {
+      echo "HI, ". strtoupper($user);
+    }
+    else
+    {
+      echo "HI, Guest";
+    } ?></a>
     </form>
   </div>
 
+  
     <ul class="nav">
          
         <li class="nav"><a href="goods.php">Essential Goods</a></li>
