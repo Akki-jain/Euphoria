@@ -13,23 +13,23 @@
         <a href="index.php" style = "color:FE7E6D; margin-top: 12px;"><img src="images/Euphoria1.png" height=60 width=120 valign=middle></a>
         <input type="text" placeholder="Search..">
         <button type="submit"><i class="fa-search"><img src="icons/search.svg" width="20" height="20" valign="middle"></i></button>
-        <a href="abc.html"><img src="icons/cart.svg" height="50" width="70" class="cart"></a>
+        <a href="cart.php"><img src="icons/cart.svg" height="50" width="70" class="cart"></a>
         <a href="login.html"><img src="icons/user.svg" height="65" width="60" class="user"></a>
         </form>
       </div>
 
       <ul class="nav">
          
-        <li class="nav"><a href="goods.php">Essential Goods</a></li>
-        <li class="nav"><a href="hospitalservices.php">Hospital Services</a></li>
-        <li class="nav"><a href="transport.html">Transport</a></li>
-        <li class="nav"><a href="covid19test.php">Covid-19 Test</a></li>
-        <li class="nav"><a href="bookanurse.html">Book A Nurse</a></li>
-        <li class="nav"><a href="donation.html">Donation</a></li>
-        <li class="nav"><a href="helpdesk.html">Help Desk</a></li>
-        <li class="nav"><a href="about.html">About Us</a></li>
-        </ul>
-
+         <li class="nav"><a href="goods.php">Essential Goods</a></li>
+         <li class="nav"><a href="hospitalservices.php">Hospital Services</a></li>
+         <li class="nav"><a href="transport.php">Transport</a></li>
+         <li class="nav"><a href="covid19test.php">Covid-19 Test</a></li>
+         <li class="nav"><a href="bookanurse.html">Book A Nurse</a></li>
+         <li class="nav"><a href="donation.html">Donation</a></li>
+         <li class="nav"><a href="helpdesk.html">Help Desk</a></li>
+         <li class="nav"><a href="about.html">About Us</a></li>
+     </ul>
+     
       <div class="container">
         <div class="row">
           <div class="column"><br><br>
@@ -41,27 +41,27 @@
             <br><br>
           <label for="start">Starting Point</label>
           <select id="start" name="start">
-            <option value="....">....</option>
-            <option value="SG Palya">SG Palya</option>
-            <option value="Domlur">Domlur</option>
-            <option value="Indiranagar">Indiranagar</option>
-            <option value="Koramangla">Koramangla</option>
-            <option value="JP Nagar">JP Nagar</option>
-            <!-- <option value="usa">USA</option> -->
+          <?php 
+          include ('connect.php');
+          $res=mysqli_query($con,"select distinct start from transport;");
+          while($row=mysqli_fetch_array($res)):?>
+            <option value="<?php echo $row['start'];?>"><?php echo $row['start'];?></option>
+            <?php endwhile;?>  
           </select>
+
 
           <label for="destination">Destination</label>
           <select id="destination" name="destination">
-            <option value="....">....</option>
-            <option value="Majestic">Majestic</option>
-            <option value="Magrath Road">Magrath Road</option>
-            <option value="Vijaynagar">Vijaynagar</option>
-            <option value="Banerghatta">Banerghatta</option>
-            <option value="Airport">Airport</option>
-            <!-- <option value="usa">USA</option> -->
+            <?php 
+          include ('connect.php');
+          $res=mysqli_query($con,"select distinct destination from transport;");
+          while($row=mysqli_fetch_array($res)):?>
+            <option value="<?php echo $row['destination'];?>"><?php echo $row['destination'];?></option>
+            <?php endwhile;?>  
+          </select>
           </select>
 
-          <label for="start">Type of Vehicle</label>
+          <label for="type">Type of Vehicle</label>
           <select id="type" name="type">
             <option value="....">....</option>
             <option value="Two-Wheeler">Two-Wheeler</option>
@@ -71,8 +71,7 @@
           <br><br>
           <a href=""><button type="submit" value="Submit" class="button1" action="trans.php">Check Amount</button></a>
           <br><br>
-          <input type="text" id="name" name="name" placeholder="Amount">
-
+          <input type="text" id="name" name="name" placeholder="Amount" value="--">
         </form>
         </div>
        </div>
@@ -80,3 +79,6 @@
       
     </body>
     </html>
+
+
+

@@ -13,7 +13,7 @@
         <a href="index.php" style = "color:FE7E6D; margin-top: 12px;"><img src="images/Euphoria1.png" height=60 width=120 valign=middle></a>
         <input type="text" placeholder="Search..">
         <button type="submit"><i class="fa-search"><img src="icons/search.svg" width="20" height="20" valign="middle"></i></button>
-        <a href="abc.html"><img src="icons/cart.svg" height="50" width="70" class="cart"></a>
+        <a href="cart.php"><img src="icons/cart.svg" height="50" width="70" class="cart"></a>
         <a href="login.html"><img src="icons/user.svg" height="65" width="60" class="user"></a>
         </form>
       </div>
@@ -22,7 +22,7 @@
          
          <li class="nav"><a href="goods.php">Essential Goods</a></li>
          <li class="nav"><a href="hospitalservices.php">Hospital Services</a></li>
-         <li class="nav"><a href="transport.html">Transport</a></li>
+         <li class="nav"><a href="transport.php">Transport</a></li>
          <li class="nav"><a href="covid19test.php">Covid-19 Test</a></li>
          <li class="nav"><a href="bookanurse.html">Book A Nurse</a></li>
          <li class="nav"><a href="donation.html">Donation</a></li>
@@ -43,7 +43,7 @@
           <select id="start" name="start">
           <?php 
           include ('connect.php');
-          $res=mysqli_query($con,"select * from transport;");
+          $res=mysqli_query($con,"select distinct start from transport;");
           while($row=mysqli_fetch_array($res)):?>
             <option value="<?php echo $row['start'];?>"><?php echo $row['start'];?></option>
             <?php endwhile;?>  
@@ -54,14 +54,14 @@
           <select id="destination" name="destination">
             <?php 
           include ('connect.php');
-          $res=mysqli_query($con,"select * from transport;");
+          $res=mysqli_query($con,"select distinct destination from transport;");
           while($row=mysqli_fetch_array($res)):?>
             <option value="<?php echo $row['destination'];?>"><?php echo $row['destination'];?></option>
             <?php endwhile;?>  
           </select>
           </select>
 
-          <label for="start">Type of Vehicle</label>
+          <label for="type">Type of Vehicle</label>
           <select id="type" name="type">
             <option value="....">....</option>
             <option value="Two-Wheeler">Two-Wheeler</option>
@@ -72,7 +72,7 @@
           <a href=""><button type="submit" value="Submit" class="button1" action="trans.php">Check Amount</button></a>
           <br><br>
           <input type="text" id="name" name="name" placeholder="Amount" value="<?php include('connect.php');
-
+          
           $start=$_POST['start'];
           $type=$_POST['type'];
           $destination=$_POST['destination'];
@@ -86,13 +86,18 @@
           {
             
             while($row = $result->fetch_assoc())
-          {
-              
+            { 
+              echo "₹ ";
               echo $row['amount'];
+              echo "/-";
             }
           } 
+          else if($type=='....')
+          {
+            echo "PLEASE ENTER THE TYPE OF VEHICLE!!!";
+          }
           else {
-              echo "No Driver found! Please try after some time.";
+              echo "NO DRIVER FOUND! PLEASE TRY AFER SOME TIME.";
           }
 
           ?>">
