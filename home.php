@@ -120,7 +120,7 @@ include 'header.php';
                                 <span class="sr-only">40% Complete (success)</span>
                             </div>
                         </div>
-                        <button class="button2">Logout</button>
+                        <a href="logout.php"><button class="button2">Logout</button></a>
                     </div>
 
             </div>

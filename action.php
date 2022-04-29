@@ -115,7 +115,6 @@ session_start();
 								<h4>Payment Mode : ' . $pmode . '</h4>
 						  </div>';
 	  echo $data;
-	  alert ("Redirecting to HomePage");
 	  sleep(4);
 	  echo "<script>window.open('index.php','_self')</script>";
 	}
