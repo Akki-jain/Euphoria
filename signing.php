@@ -16,6 +16,8 @@
 	$pincode=$_POST['pincode'];
 	$today=date("Y-m-d");
 
+
+	// $hash = password_hash($pass, PASSWORD_DEFAULT);
 	$sql="insert into user_details values ('$user','$pass','$name','$phone','$dob','$email',21,'$category','$hnum','$building','$street','$city','$state','$pincode')";
 	$result = mysqli_query($con, $sql);  
 

@@ -108,7 +108,12 @@ include 'header.php';
             <div id="page-inner">
                 <div class="row">
                     <div class="col-md-12">
-                        <h2>Welcome <?php echo strtoupper($_SESSION['customer_email']); ?></h2>
+                        <h2>Welcome <?php 
+                        if(isset($_SESSION['customer_email']))
+                        echo strtoupper($_SESSION['customer_email']); 
+                        else
+                        echo "Guest";
+                        ?></h2>
                     </div>
                 </div>
                 <!-- /. ROW  -->

@@ -66,7 +66,7 @@ if(isset($_SESSION['customer_email']))
         </div>
       </div>
       
-      <center><input type="button" value="Become Member Now" onclick="location.href = 'signup.html'" class="homebutton"></center>
+      <center><input type="button" value="Become Member Now" onclick="location.href = 'sign.php'" class="homebutton"></center>
       <br><br>
       <p align="left" style="margin-top: 200px; margin-left: 50px; font-family:'Lucida Sans'; font-size: medium;"><font color="FF7527">At EUPHORIA</font>, 
         we seek to remove barriers between the specially-abled and the rest of the world. <br>We give an easy-to-use environment with all of the necessary assistance. 

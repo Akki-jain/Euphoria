@@ -1,5 +1,4 @@
 <?php
-
         include('connect.php');
 
         $donor=$_POST['name'];
@@ -12,12 +11,13 @@
 
         if ($con->query($sql1) === TRUE) 
         {
-        echo "New record created successfully<BR><BR><BR>";
+
+        echo "<script>alert('Donation Successfull')</script>";
+        include 'donation.html';
         } 
         else 
         {
         echo "Error: " . $sql . "<br>" . $con->error;
         }
         
-        mysql_close($con);
 ?>

@@ -43,30 +43,10 @@ function filterTable($query)
   background-position: 10px 10px;
   background-repeat: no-repeat;
   width: 100%;
-  font-size: 16px;
+  font-size: 16 px;
   padding: 12px 20px 12px 40px;
   border: 1px solid #ddd;
   margin-bottom: 12px;
-}
-
-#myTable {
-  border-collapse: collapse;
-  width: 100%;
-  border: 2px solid #ddd;
-  font-size: 18px;
-}
-
-#myTable th, #myTable td {
-  text-align: left;
-  padding: 14px;
-}
-
-#myTable tr {
-  border-bottom: 2px solid #ddd;
-}
-
-#myTable tr.header, #myTable tr:hover {
-  background-color: #f1f1f5;
 }
 </style>
 </head>
@@ -124,37 +104,43 @@ function filterTable($query)
             <div id="page-inner">
                 <div class="row">
                     <div class="col-md-12">
-                        <h2>Welcome <?php echo strtoupper($_SESSION['customer_email']); ?></h2>
+                        <h2>Welcome <?php 
+                        if(isset($_SESSION['customer_email']))
+                        echo strtoupper($_SESSION['customer_email']); 
+                        else
+                        echo "Guest";
+                        ?></h2>
                     </div>
                 </div>
                 <!-- /. ROW  -->
-                <hr />
-                    <div class="col-md-6">
-                        <h5>Order History</h5>
-<table class="fl-table">
-            <table id="myTable">
-                <tr>
-                 <th>Order_id</th>
-                 <th>Name</th>
-                 <th>Products</th>
-                 <th>Total</th>
-                 <th>Mode of Payment</th>
+                <hr>
+                    
+                <div class="col-md-6">
+                    <h5 style="margin:auto;">Order History</h5>
+                </div>
+            <br><br>
+            <table style="padding:30px; border-collapse: collapse;">
+                <tr style="padding:20px;">
+                 <th style="width:200px; text-align:center;">Order_id</th>
+                 <th style="width:200px; text-align:center;">Name</th>
+                 <th style="width:500px; text-align:center;">Products</th>
+                 <th style="width:200px; text-align:center;">Total</th>
+                 <th style="width:200px; text-align:center;">Mode of Payment</th>
                 </tr>
 
-      <!-- populate table from mysql database -->
+                <!-- populate table from mysql database -->
                 <?php while($row = mysqli_fetch_array($search_result)):?>
                 <tr>
-                  <td><?php echo $row['order_id']??''; ?></td>
-                  <td><?php echo $row['name']??''; ?></td>
-                  <td><?php echo $row['products']??''; ?></td>
-                  <td><?php echo $row['amount_paid']??''; ?></td>
-                  <td><?php echo $row['pmode']??''; ?></td>
+                  <td style="padding:15px; text-align:center;"><?php echo $row['order_id']??''; ?></td>
+                  <td style="padding:15px; text-align:center;"><?php echo $row['name']??''; ?></td>
+                  <td style="padding:15px; text-align:center;"><?php echo $row['products']??''; ?></td>
+                  <td style="padding:15px; text-align:center;"><?php echo $row['amount_paid']??''; ?></td>
+                  <td style="padding:15px; text-align:center;"><?php echo $row['pmode']??''; ?></td>
                 </tr>
                 <?php endwhile;?>
-            </table>
         </table>
 
-                    </div>
+
 
                 </div>
             </div>

@@ -3,12 +3,11 @@
         include('connect.php');
 
         $name=$_POST['name'];
-        $email=$_POST['email'];
-        $number=$_POST['number'];
-        $message=$_POST['subject'];
+        $number=$_POST['shift'];
+        $shift=$_POST['shift'];
 
 
-        $sql1 = "INSERT INTO helpdesk VALUES ('$name','$email','$number','$message')";
+        $sql1 = "INSERT INTO nurse_booking VALUES ('$name','$email','$number','$message')";
 
         if ($con->query($sql1) === TRUE) 
         {
