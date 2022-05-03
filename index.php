@@ -15,7 +15,6 @@ if(isset($_SESSION['customer_email']))
     
 </head>
 <body>
-
   <div class="topnav">
     <form class="example" action="index.php" method="post">
     <a href="index.php" style = "color:FE7E6D; margin-top: 12px;"><img src="images/Euphoria1.png" height=60 width=120 valign=middle></a>

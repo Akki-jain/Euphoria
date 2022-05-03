@@ -33,7 +33,7 @@ if(isset($_SESSION['customer_email']))
 
       .cards {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(300px, .2fr));
         gap: 2rem;
         margin: 4rem 5vw;
         padding: 0;
@@ -68,7 +68,7 @@ if(isset($_SESSION['customer_email']))
         border-radius: calc(var(--curve) * 1px);    
         background-color: var(--surface-color);      
         transform: translateY(100%);
-        transition: .2s ease-in-out;
+        transition: .4s ease-in-out;
       }
 
       .card:hover .card__overlay {
@@ -170,7 +170,7 @@ if(isset($_SESSION['customer_email']))
 <body>
 
   <div class="topnav">
-    <form class="example" action="index.php" method="post">
+    <form class="example" action="goods.php" method="post">
     <a href="index.php" style = "color:FE7E6D; margin-top: 12px;"><img src="images/Euphoria1.png" height=60 width=120 valign=middle></a>
     <input type="text" placeholder="Search.." name="bar" id="bar">
     <button type="submit"><i class="fa-search"><img src="icons/search.svg" width="20" height="20" valign="middle"></i></button>
@@ -201,9 +201,30 @@ if(isset($_SESSION['customer_email']))
 
   <ul class="cards">
           <?php 
-          include ('connect.php');
-          $res=mysqli_query($con,"select * from product_details;");
-          while($row=mysqli_fetch_array($res)):?>
+
+            if(isset($_POST['bar']))
+            {
+                $valueToSearch = $_POST['bar'];
+                $query = "SELECT * FROM product_details WHERE pname like '%$valueToSearch%' OR descriptions like '%$valueToSearch%'";
+                $search_result = filterTable($query);
+                
+            }
+            else 
+            {
+                $query = "SELECT * FROM product_details";
+                $search_result = filterTable($query);
+            }
+
+            function filterTable($query)
+            {
+                include('connect.php');
+                $filter_Result = mysqli_query($con, $query);
+                return $filter_Result;
+            }
+
+          // include ('connect.php');
+          // $res=mysqli_query($con,"select * from product_details;");
+          while($row=mysqli_fetch_array($search_result)):?>
           <li>
             <div class="card">
               <img src=<?php echo $row['image'];?> class="card__image" alt="" />
@@ -230,7 +251,7 @@ if(isset($_SESSION['customer_email']))
               </div>
           </div>
           </li>
-          <?php endwhile;?>   
+          <?php endwhile;?> 
         </ul>
   <!-- Displaying Products End -->
 
