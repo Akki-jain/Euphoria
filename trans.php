@@ -48,9 +48,17 @@ if(isset($_SESSION['customer_email']))
       <div class="container">
         <div class="row">
           <div class="column"><br><br>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7777.277390802726!2d77.60391562365176!3d12.930927870315594!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae14531eedd659%3A0x3cde8534fb610682!2sS.G.%20Palya%2C%20Bengaluru%2C%20Karnataka%20560029!5e0!3m2!1sen!2sin!4v1648454663265!5m2!1sen!2sin" 
-            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
+          <?php 
+          include ('connect.php');
+          $start=$_POST['start'];
+          $type=$_POST['type'];
+          $destination=$_POST['destination'];
+          $res=mysqli_query($con,"SELECT * from transport where start='$start' && destination='$destination' && type='$type'");
+          while($row=mysqli_fetch_array($res)):?>
+            <iframe src="<?php echo $row['map'];?>" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <?php endwhile;?> 
+            
+          </div>
       <div class="column">
         <form method="POST" action="trans.php" >
             <br><br>

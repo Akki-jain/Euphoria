@@ -35,6 +35,30 @@ if(isset($_SESSION['customer_email']))
     </form>
   </div>
 
+  <?php
+      if(isset($_POST['bar']))
+        {  
+        $pagesearch=$_POST['bar'];
+          if(strpos(' goods essential aids wheelchair medicine stick prostheses walkers',$pagesearch))
+          echo "<script>window.open('goods.php','_self')</script>";
+          else if(strpos(' hospital institute ',$pagesearch))
+          echo "<script>window.open('hospitalservices.php','_self')</script>";
+          else if(strpos(' transport travel move go vehicle directions destination ',$pagesearch))
+          echo "<script>window.open('transport.php','_self')</script>";
+          else if(strpos(' covid corona test centre ',$pagesearch))
+          echo "<script>window.open('covid19test.php','_self')</script>";
+          else if(strpos(' book nurse assistance ',$pagesearch))
+          echo "<script>window.open('bookanurse.html','_self')</script>";
+          else if(strpos(' donation donate money ',$pagesearch))
+          echo "<script>window.open('donation.html','_self')</script>";
+          else if(strpos(' help desk remarks query problem review rating ',$pagesearch))
+          echo "<script>window.open('helpdesk.html','_self')</script>";
+          else if(strpos(' us euphoria about',$pagesearch))
+          echo "<script>window.open('about.html','_self')</script>";
+          else
+          echo "<script>window.open('index.php','_self')</script>";
+        }
+  ?>
   
     <ul class="nav">
          
@@ -95,11 +119,11 @@ if(isset($_SESSION['customer_email']))
     <br><br><br>
 
     <div class="flex-container">
-      <div><a href="goods.html" style="text-decoration:none; color:black">Essentials for Blindness<img src="images/undraw_pedestrian_crossing_l-6-jv.svg" height="280" width="230" valign="bottom" style="margin-top:-50px"></a></div>
-      <div><a href="goods.html" style="text-decoration:none; color:black">Medicine for all<img src="images/undraw_medical_care_movn.svg" height="250" width="200" valign="bottom" style="margin-top:-40px"></a></div>
-      <div><a href="goods.html" style="text-decoration:none; color:black">Essentials for limb problems<img src="images/undraw_injured_9757.svg" height="180" width="160" valign="bottom" style="margin-top:-20px"></a></div>
-      <div><a href="goods.html" style="text-decoration:none; color:black">Essentials for Deafness<img src="images/undraw_meditation_re_gll0.svg" height="280" width="220" valign="bottom" style="margin-top:-60px"></a></div>
-      <div><a href="transport.html" style="text-decoration:none; color:black">Transport Services<img src="images/undraw_city_driver_re_0x5e.svg" height="250" width="200" valign="bottom" style="margin-top:-50px"></a></div>  
+      <div><a href="goods.php" style="text-decoration:none; color:black">Essentials for Blindness<img src="images/undraw_pedestrian_crossing_l-6-jv.svg" height="280" width="230" valign="bottom" style="margin-top:-50px"></a></div>
+      <div><a href="goods.php" style="text-decoration:none; color:black">Medicine for all<img src="images/undraw_medical_care_movn.svg" height="250" width="200" valign="bottom" style="margin-top:-40px"></a></div>
+      <div><a href="goods.php" style="text-decoration:none; color:black">Essentials for limb problems<img src="images/undraw_injured_9757.svg" height="180" width="160" valign="bottom" style="margin-top:-20px"></a></div>
+      <div><a href="goods.php" style="text-decoration:none; color:black">Essentials for Deafness<img src="images/undraw_meditation_re_gll0.svg" height="280" width="220" valign="bottom" style="margin-top:-60px"></a></div>
+      <div><a href="transport.php" style="text-decoration:none; color:black">Transport Services<img src="images/undraw_city_driver_re_0x5e.svg" height="250" width="200" valign="bottom" style="margin-top:-50px"></a></div>  
     </div>
     <br><br><br>
 

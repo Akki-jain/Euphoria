@@ -68,7 +68,7 @@ if(isset($_SESSION['customer_email']))
         border-radius: calc(var(--curve) * 1px);    
         background-color: var(--surface-color);      
         transform: translateY(100%);
-        transition: .4s ease-in-out;
+        transition: .3s ease-in-out;
       }
 
       .card:hover .card__overlay {
@@ -207,12 +207,12 @@ if(isset($_SESSION['customer_email']))
                 $valueToSearch = $_POST['bar'];
                 $query = "SELECT * FROM product_details WHERE pname like '%$valueToSearch%' OR descriptions like '%$valueToSearch%'";
                 $search_result = filterTable($query);
-                
             }
             else 
             {
                 $query = "SELECT * FROM product_details";
                 $search_result = filterTable($query);
+
             }
 
             function filterTable($query)
@@ -251,8 +251,11 @@ if(isset($_SESSION['customer_email']))
               </div>
           </div>
           </li>
-          <?php endwhile;?> 
+          <?php endwhile;?>
+          
         </ul>
+
+        
   <!-- Displaying Products End -->
 
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>

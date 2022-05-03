@@ -61,7 +61,7 @@ if(isset($_SESSION['customer_email']))
       <form action="hospitalservices.php" method="post">
             <input type="button" value="Back" id="back" onclick="history.back()" class="button2">
             <center style="margin-top: -45px;">
-            <input type="text" name="valueToSearch" placeholder="Enter the Pincode" style="border-radius: 12px; border: 1px solid #FF7527; font-size: 12px; font-weight: bold; padding: 12px 45px; transition: transform 80ms ease-in; width: 242px; text-align: center;">
+            <input type="text" name="valueToSearch" placeholder="Enter Area Name or Pincode" style="border-radius: 12px; border: 1px solid #FF7527; font-size: 12px; font-weight: bold; padding: 12px 45px; transition: transform 80ms ease-in; width: 420px; text-align: center;">
             
             <input type="submit" name="search" value="Search" class="button1"><br><br>
             
@@ -72,7 +72,7 @@ if(isset($_SESSION['customer_email']))
                 <th  style="width: 300px;" class="datalooks">Type</th>
                 <th  style="width: 180px;" class="datalooks">Email ID</th>
                 <th  style="width: 110px;" class="datalooks">Number</th>
-                <th  style="width: 200px;" class="datalooks">Street</th>
+                <th  style="width: 200px;" class="datalooks">Area</th>
                 <th  style="width: 82px;" class="datalooks">City</th>
                 <th  style="width: 112px;" class="datalooks">State</th>
                 <th  style="width: 82px;" class="datalooks">Pincode</th>
@@ -82,7 +82,7 @@ if(isset($_SESSION['customer_email']))
                 if(isset($_POST['search']))
                 {
                     $valueToSearch = $_POST['valueToSearch'];
-                    $query = "SELECT * FROM hosp_details WHERE hpincode= '$valueToSearch'";
+                    $query = "SELECT * FROM hosp_details WHERE hpincode= '$valueToSearch' OR hstreet like '%$valueToSearch%'";
                     $search_result = filterTable($query);
                     
                 }

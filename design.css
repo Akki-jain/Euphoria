@@ -81,7 +81,7 @@
 
   li.nav a:hover {
     background-color: #111;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
   }
   
   * {
@@ -95,6 +95,12 @@
     float: left;
     width: 500px;
     background: #f1f1f1;
+    border: hidden;
+    outline: none;
+  }
+
+  form.example  input:active{
+    box-shadow: 0 4px 8px 0 #00000033, 0 6px 20px 0 #00000030;
   }
   
   /* Style the submit button */
@@ -175,6 +181,7 @@ img.cart{
 
 .homebutton:hover {
   background-color: #ca1f08;
+  letter-spacing: 1px;
   color: #ffffff;
   box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
