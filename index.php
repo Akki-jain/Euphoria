@@ -5,36 +5,56 @@ if(isset($_SESSION['customer_email']))
   $user=$_SESSION['customer_email'];
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <title>Euphoria | Home</title>
     <link rel="stylesheet" href="carousel.css">
-    <link rel="stylesheet" href="design.css">
+    <?php 
+    // if(null!==$_GET['theme'])
+    // {$theme=$_GET['theme'];
+    // if($theme=="dark")
+    // {
+    //   echo "<link rel='stylesheet' href='design2.css'>";
+    // }
+    // else
+    //   echo "<link rel='stylesheet' href='design.css'>";}
+    ?>
+    <link rel='stylesheet' href='design.css'>
     <link rel="icon" type="image/x-icon" href="icons/favicon.ico">
     
 </head>
 <body>
-  <div class="topnav">
-    <form class="example" action="index.php" method="post">
-    <a href="index.php" style = "color:FE7E6D; margin-top: 12px;"><img src="images/Euphoria1.png" height=60 width=120 valign=middle></a>
-    <input type="text" placeholder="Search.." name="bar" id="bar">
-    <button type="submit"><i class="fa-search"><img src="icons/search.svg" width="20" height="20" valign="middle"></i></button>
-    
-    <a href="cart.php"><img src="icons/cart.svg" height="50" width="70" class="cart"></a>
-    
-    <a href="sign.php"><img src="icons/user.svg" height="65" width="60" class="user"></a>
-    <a href="home.php" style="margin-top:24px" ><?php if(isset($_SESSION['customer_email']))
-    {
-      echo "HI, ". strtoupper($user);
-    }
-    else
-    {
-      echo "HI, Guest";
-    } ?></a>
-    </form>
-  </div>
 
+    <div class="topnav">
+            <form class="example" action="index.php" method="post">
+            <a href="index.php" style = "color:FE7E6D; margin-top: 12px;"><img src="images/Euphoria1.png" height=60 width=120 valign=middle></a>
+            <input type="text" placeholder="Search.." name="bar" id="bar">
+            <button type="submit"><i class="fa-search"><img src="icons/search.svg" width="20" height="20" valign="middle"></i></button>
+            <a class="nav-link" href="cart.php"><img src="icons/cart.svg" height="50" width="70" class="cart"><p id="cart-item" style="margin-top:-50px; margin-left:220px; background-color: #ca1f08; color: #ffffff; border-radius: 4px;" class="badge badge-danger"></p></a>
+            <?php if(isset($_SESSION['customer_email']))
+            {
+            echo "  ";
+            }
+            else
+            {
+            echo "<a href='sign.php'><img src='icons/user.svg' height='65' width='100' class='user'></a>";
+            } ?>
+            
+            <a href="home.php" style="margin-top:24px" ><?php if(isset($_SESSION['customer_email']))
+            {
+            echo "&emsp;&emsp; Hi, ". strtoupper($user);
+            }
+            else
+            {
+            echo "HI, Guest";
+            } ?></a>
+            </form>
+              <!-- <form action='index.php' method='get'>
+                <input type="submit" name="theme" id="theme" value="dark">
+              </form> -->
+        </div>
   <?php
       if(isset($_POST['bar']))
         {  
@@ -48,13 +68,13 @@ if(isset($_SESSION['customer_email']))
           else if(strpos(' covid corona test centre ',$pagesearch))
           echo "<script>window.open('covid19test.php','_self')</script>";
           else if(strpos(' book nurse assistance ',$pagesearch))
-          echo "<script>window.open('bookanurse.html','_self')</script>";
+          echo "<script>window.open('bookanurse.php','_self')</script>";
           else if(strpos(' donation donate money ',$pagesearch))
-          echo "<script>window.open('donation.html','_self')</script>";
+          echo "<script>window.open('donation.php','_self')</script>";
           else if(strpos(' help desk remarks query problem review rating ',$pagesearch))
-          echo "<script>window.open('helpdesk.html','_self')</script>";
+          echo "<script>window.open('helpdesk.php','_self')</script>";
           else if(strpos(' us euphoria about',$pagesearch))
-          echo "<script>window.open('about.html','_self')</script>";
+          echo "<script>window.open('about.php','_self')</script>";
           else
           echo "<script>window.open('index.php','_self')</script>";
         }
@@ -66,10 +86,10 @@ if(isset($_SESSION['customer_email']))
         <li class="nav"><a href="hospitalservices.php">Hospital Services</a></li>
         <li class="nav"><a href="transport.php">Transport</a></li>
         <li class="nav"><a href="covid19test.php">Covid-19 Test</a></li>
-        <li class="nav"><a href="bookanurse.html">Book A Nurse</a></li>
-        <li class="nav"><a href="donation.html">Donation</a></li>
-        <li class="nav"><a href="helpdesk.html">Help Desk</a></li>
-        <li class="nav"><a href="about.html">About Us</a></li>
+        <li class="nav"><a href="bookanurse.php">Book A Nurse</a></li>
+        <li class="nav"><a href="donation.php">Donation</a></li>
+        <li class="nav"><a href="helpdesk.php">Help Desk</a></li>
+        <li class="nav"><a href="about.php">About Us</a></li>
     </ul>
 
     <br>
@@ -136,8 +156,7 @@ if(isset($_SESSION['customer_email']))
 			</div>
 			<p class="euph">Euphoria</p>
 		</div> -->
-
-
+            
 </body>
 </html>
 

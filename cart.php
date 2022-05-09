@@ -18,6 +18,152 @@ if(isset($_SESSION['customer_email']))
   <link rel="stylesheet" href="design.css">
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css' />
   <!-- <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css' /> -->
+  <style>
+      .topnav {
+      overflow: hidden;
+      position:sticky;
+      background-color: #FFF4EE;
+      margin-top: -8px;
+      margin-left: -8px;
+      margin-right: -8px;
+    }
+
+    /* Style the links inside the navigation bar */
+    .topnav a {
+      float: left;
+      display: block;
+      color: #FE7E6D;
+      text-align: center;
+      padding: 4px 16px;
+      text-decoration: none;
+      font-size: 17px;
+    }
+    
+    /* Style the "active" element to highlight the current page */
+    .topnav a.active {
+      background-color: #2196F3;
+      color: white;
+    }
+    
+    /* Style the search box inside the navigation bar */
+    .topnav input[type=text] {
+      float: center;
+      padding: 6px;
+      border: none;
+      margin-top: 15px;
+      margin-left: 300px;
+      font-size: 17px;
+      box-shadow: 0 4px 8px 0 #00000033, 0 6px 20px 0 #00000030;
+      border-bottom-left-radius: 10px;
+      border-top-left-radius: 10px;
+    }
+    
+    /* When the screen is less than 600px wide, stack the links and the search field vertically instead of horizontally */
+    @media screen and (max-width: 600px) {
+      .topnav a, .topnav input[type=text] {
+        float: none;
+        display: block;
+        text-align: left;
+        width: 100%;
+        padding: 14px;
+      }
+      /* .topnav input[type=text] {
+        border: 1px solid #ccc;
+      } */
+    }
+
+    ul.nav {
+      position:sticky; 
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: #2E1000;
+      margin-left: -8px;
+      margin-right: -8px;
+      box-shadow: 0 4px 8px 0 #00000033, 0 6px 20px 0 #00000030;
+    }
+
+    li.nav {
+      float: left;
+    }
+    
+    li.nav a {
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      width:12.3vw;
+      transition-duration:  0.4s;
+    }
+
+    li.nav a:hover {
+      background-color: #111;
+      letter-spacing: 1px;
+    }
+    
+    * {
+      box-sizing: border-box;
+    }
+    
+    /* Style the search field */
+    form.example input[type=text] {
+      padding: 12px;
+      font-size: 15px;
+      float: left;
+      width: 500px;
+      background: #f1f1f1;
+      border: hidden;
+      outline: none;
+    }
+
+    form.example  input:active{
+      box-shadow: 0 4px 8px 0 #00000033, 0 6px 20px 0 #00000030;
+    }
+    
+    /* Style the submit button */
+    form.example button {
+      float: left;
+      width: 40px;
+      height: 42px;
+      margin-top: 15px;
+      padding: 12px;
+      background: #FF7527;
+      border: #FF7527;
+      color: white;
+      font-size: 15px;
+      cursor: pointer;
+      border-top-right-radius: 10px;
+      border-bottom-right-radius: 10px;
+      box-shadow: 0 4px 8px 0 #00000033, 0 6px 20px 0 #00000030;
+    }
+    
+    form.example button:hover {
+      background: #ca5510;
+    }
+    
+    /* Clear floats */
+    form.example::after {
+      content: "";
+      clear: both;
+      display: table;
+    }
+
+  .fa-search{
+      margin-left: -4px;
+  }
+
+  img.cart{
+      margin-left: 10em;
+      margin-top:7px;
+  }
+
+
+  .user{
+    margin-top:7px;
+  }
+  </style>
 </head>
 
 <body>
@@ -27,10 +173,17 @@ if(isset($_SESSION['customer_email']))
     <input type="text" placeholder="Search.." name="bar" id="bar">
     <button type="submit"><i class="fa-search"><img src="icons/search.svg" width="20" height="20" valign="middle"></i></button>
     <a class="nav-link" href="cart.php"><img src="icons/cart.svg" height="50" width="70" class="cart"><span id="cart-item" class="badge badge-danger"></span></a>
-    <a href="sign.php"><img src="icons/user.svg" height="65" width="60" class="user"></a>
+    <?php if(isset($_SESSION['customer_email']))
+            {
+            echo "  ";
+            }
+            else
+            {
+            echo "<a href='sign.php'><img src='icons/user.svg' height='65' width='100' class='user'></a>";
+            } ?>
     <a href="index.php" style="margin-top:24px" ><?php if(isset($_SESSION['customer_email']))
     {
-      echo "HI, ". strtoupper($user);
+      echo "&emsp;&emsp; Hi, ". strtoupper($user);
     }
     else
     {
@@ -43,12 +196,12 @@ if(isset($_SESSION['customer_email']))
          
         <li class="nav"><a href="goods.php">Essential Goods</a></li>
         <li class="nav"><a href="hospitalservices.php">Hospital Services</a></li>
-        <li class="nav"><a href="transport.html">Transport</a></li>
+        <li class="nav"><a href="transport.php">Transport</a></li>
         <li class="nav"><a href="covid19test.php">Covid-19 Test</a></li>
-        <li class="nav"><a href="bookanurse.html">Book A Nurse</a></li>
-        <li class="nav"><a href="donation.html">Donation</a></li>
-        <li class="nav"><a href="helpdesk.html">Help Desk</a></li>
-        <li class="nav"><a href="about.html">About Us</a></li>
+        <li class="nav"><a href="bookanurse.php">Book A Nurse</a></li>
+        <li class="nav"><a href="donation.php">Donation</a></li>
+        <li class="nav"><a href="helpdesk.php">Help Desk</a></li>
+        <li class="nav"><a href="about.php">About Us</a></li>
     </ul>
     <div class="container">
     <div class="row justify-content-center">

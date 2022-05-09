@@ -115,7 +115,7 @@ session_start();
 								<h4>Payment Mode : ' . $pmode . '</h4>
 						  </div>';
 	  echo $data;
-	  sleep(4);
+	  sleep(20);
 	  echo "<script>window.open('index.php','_self')</script>";
 	}
 ?>

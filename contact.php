@@ -13,7 +13,7 @@
         if ($con->query($sql1) === TRUE) 
         {
                 echo "<script>alert('Message Received Successfully')</script>";
-                include 'helpdesk.html';
+                include 'helpdesk.php';
         } 
         else 
         {

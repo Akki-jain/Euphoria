@@ -33,7 +33,7 @@
           <input type="text" name="cpass" id="cpass" placeholder="Confirm Password" />
         </div>
         <div class=""><br>
-          <a href="#" class="bt btn-next width-50 ml-auto" style="border-radius: 30px; border: 1px solid #20dbc2; background-color: #20dbc2; color: white; font-size: 12px; font-weight: bold; padding: 12px 45px; letter-spacing: 1px; text-transform: uppercase;transition: transform 80ms ease-in; width: 142px;">Next</a>
+          <a href="#" class="bt btn-next width-50 ml-auto" style="border-radius: 30px; background-color: #FF7527; color: white; font-size: 12px; font-weight: bold; padding: 12px 45px; letter-spacing: 1px; text-transform: uppercase;transition: transform 80ms ease-in; width: 142px;">Next</a>
         </div>
       </div>
       <div class="form-step">
@@ -50,8 +50,8 @@
           <input type="date" name="dob" id="dob" />
         </div>
         <div class="btns-group">
-          <a href="#" class="bt btn-prev" style="border-radius: 30px; border: 1px solid #20dbc2; background-color: #20dbc2; color: white; font-size: 12px; font-weight: bold; padding: 12px 20px; letter-spacing: 1px; text-transform: uppercase;transition: transform 80ms ease-in; width: 142px;">Previous</a>
-          <a href="#" class="bt btn-next" style="border-radius: 30px; border: 1px solid #20dbc2; background-color: #20dbc2; color: white; font-size: 12px; font-weight: bold; padding: 12px 20px; letter-spacing: 1px; text-transform: uppercase;transition: transform 80ms ease-in; width: 142px;">Next</a>
+          <a href="#" class="bt btn-prev" style="border-radius: 30px; background-color: #FF7527; color: white; font-size: 12px; font-weight: bold; padding: 12px 20px; letter-spacing: 1px; text-transform: uppercase;transition: transform 80ms ease-in; width: 142px;">Previous</a>
+          <a href="#" class="bt btn-next" style="border-radius: 30px; background-color: #FF7527; color: white; font-size: 12px; font-weight: bold; padding: 12px 20px; letter-spacing: 1px; text-transform: uppercase;transition: transform 80ms ease-in; width: 142px;">Next</a>
         </div>
       </div>
       <div class="form-step"> 
@@ -65,8 +65,8 @@
           <input type="text" name="building" id="building" placeholder="Building" />
         </div>
         <div class="btns-group">
-          <a href="#" class="bt btn-prev" style="border-radius: 30px; border: 1px solid #20dbc2; background-color: #20dbc2; color: white; font-size: 12px; font-weight: bold; padding: 12px 20px; letter-spacing: 1px; text-transform: uppercase;transition: transform 80ms ease-in; width: 142px;">Previous</a>
-          <a href="#" class="bt btn-next" style="border-radius: 30px; border: 1px solid #20dbc2; background-color: #20dbc2; color: white; font-size: 12px; font-weight: bold; padding: 12px 20px; letter-spacing: 1px; text-transform: uppercase;transition: transform 80ms ease-in; width: 142px;">Next</a>
+          <a href="#" class="bt btn-prev" style="border-radius: 30px; border: 1px solid #20dbc2; background-color: #FF7527; color: white; font-size: 12px; font-weight: bold; padding: 12px 20px; letter-spacing: 1px; text-transform: uppercase;transition: transform 80ms ease-in; width: 142px;">Previous</a>
+          <a href="#" class="bt btn-next" style="border-radius: 30px; border: 1px solid #20dbc2; background-color: #FF7527; color: white; font-size: 12px; font-weight: bold; padding: 12px 20px; letter-spacing: 1px; text-transform: uppercase;transition: transform 80ms ease-in; width: 142px;">Next</a>
         </div>
       </div>
       <div class="form-step">
@@ -83,8 +83,8 @@
           <input type="text" name="pincode" id="pincode" placeholder="Pincode" />
         </div>
         <div class="btns-group">
-          <a href="#" class="btn btn-prev" style="border-radius: 30px; border: 1px solid #20dbc2; background-color: #20dbc2; color: white; font-size: 12px; font-weight: bold; padding: 14px 20px; letter-spacing: 1px; text-transform: uppercase;transition: transform 80ms ease-in; width: 142px;">Previous</a>
-          <button class="test" style="border-radius: 30px; border: 1px solid #20dbc2; background-color: #20dbc2; color: white; font-size: 12px; font-weight: bold; padding: 0; letter-spacing: 1px; text-transform: uppercase;transition: transform 80ms ease-in; width: 142px; height: 44px;margin-top: 15px;">Sign Up</button>
+          <a href="#" class="btn btn-prev" style="border-radius: 30px; border: 1px solid #20dbc2; background-color: #FF7527; color: white; font-size: 12px; font-weight: bold; padding: 14px 20px; letter-spacing: 1px; text-transform: uppercase;transition: transform 80ms ease-in; width: 142px;">Previous</a>
+          <button class="test" style="border-radius: 30px; border: 1px solid #20dbc2; background-color: #FF7527; color: white; font-size: 12px; font-weight: bold; padding: 0; letter-spacing: 1px; text-transform: uppercase;transition: transform 80ms ease-in; width: 142px; height: 44px;margin-top: 15px;">Sign Up</button>
         </div>
       </div>
 		</form>
@@ -101,7 +101,7 @@
 			<input type="text" placeholder="Username" name="username" />
 			<input type="password" placeholder="Password" name="password" />
 			<a href="#">Forgot your password?</a>
-			<button name="login" value="Sign In" class="btn btn-primary" style="border-radius: 30px; border: 1px solid #20dbc2; background-color: #ff1c5d; color: white; font-size: 12px; font-weight: bold; padding: 14px 20px; letter-spacing: 1px; text-transform: uppercase;transition: transform 80ms ease-in; width: 142px;">Sign In</button>
+			<button name="login" value="Sign In" class="btn btn-primary" style="border-radius: 30px; background-color: #FF7527; color: white; font-size: 12px; font-weight: bold; padding: 14px 20px; letter-spacing: 1px; text-transform: uppercase;transition: transform 80ms ease-in; width: 142px;">Sign In</button>
 		</form>
 	</div>
 	<div class="overlay-container">

@@ -163,7 +163,144 @@ if(isset($_SESSION['customer_email']))
       li.nav a:hover {
         background-color: #111;
       }
+      
+      :root {
+        --button-background: dodgerblue;
+        --button-color: white;
+        
+        --dropdown-highlight: dodgerblue;
+        --dropdown-width: 160px;
+        --dropdown-background: white;
+        --dropdown-color: black;
+      }
 
+      /* Dropdown styles */
+      .dropdown {
+        position: absolute;
+        padding: 0;
+        border: none;
+      }
+
+      .dropdown summary {
+        list-style: none;
+        list-style-type: none;
+      }
+
+      .dropdown > summary::-webkit-details-marker {
+        display: none;
+      }
+
+      .dropdown summary:focus {
+        outline: none;
+      }
+
+      .dropdown summary:focus a.button {
+        border: 2px solid white;
+      }
+
+      .dropdown summary:focus {
+        outline: none;
+      }
+
+      .dropdown ul {
+        position: absolute;
+        margin: 20px 0 0 0;
+        margin-top:-15px;
+        padding: 20px 0;
+        width: var(--dropdown-width);
+        left: 50%;
+        margin-left: calc((var(--dropdown-width) / 2)  * -1);
+        box-sizing: border-box;
+        z-index: 2;
+        box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.218), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+        background: var(--dropdown-background);
+        border-radius: 6px;
+        list-style: none;
+      }
+
+      .dropdown ul li {
+        padding: 0;
+        margin: 0;
+      }
+
+      .dropdown ul li input {
+        background-color:white;
+        padding:10px;
+        color:black;
+        border:none;
+        width:100%;
+
+      }
+
+      .dropdown ul li input:hover {
+        background-color: #FF7527;
+        color: var(--dropdown-background);
+      }
+
+      /* Dropdown triangle */
+      .dropdown ul::before {
+        content: ' ';
+        position: absolute;
+        width: 0;
+        height: 0;
+        top: -10px;
+        left: 50%;
+        margin-left: 10px;
+        border-style: solid;
+        border-width: 0 10px 10px 10px;
+        border-color: transparent transparent var(--dropdown-background) transparent;
+      }
+
+      
+
+      /* Close the dropdown with outside clicks */
+      .dropdown > summary::before {
+        display: none;
+      }
+
+      .dropdown[open] > summary::before {
+          content: ' ';
+          display: block;
+          position: fixed;
+          top: 0;
+          right: 0;
+          left: 0;
+          bottom: 0;
+          z-index: 1;
+      }
+      .cartbt{
+        width:80%;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        background-color:;
+        border:solid 2px orange;
+        cursor: pointer;
+        transition:0.4s all;
+        /* box-shadow: 0 4px 8px 0 #b1717133, 0 6px 20px 0 #00000030; */
+        border-top-right-radius: 25px;
+        border-bottom-left-radius: 25px;
+        background: linear-gradient(#FE7E6D,#ff9d64);
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+        background-size: 0% 50%;
+        
+
+      }
+      .cartbt:hover{
+        /* background-color: rgba(255, 148, 148, 0.778); */
+        transition:0.4s all;
+        background-size: 100% 100%;
+        border-top-left-radius: 25px;
+        border-bottom-right-radius: 25px;
+        border-top-right-radius: 0px;
+        border-bottom-left-radius: 0px;
+      }
+      .cartIcon{
+
+      height: 40px;
+      width: 100px;
+      float:center;
+      }
     </style>
 </head>
 
@@ -175,10 +312,18 @@ if(isset($_SESSION['customer_email']))
     <input type="text" placeholder="Search.." name="bar" id="bar">
     <button type="submit"><i class="fa-search"><img src="icons/search.svg" width="20" height="20" valign="middle"></i></button>
     <a class="nav-link" href="cart.php"><img src="icons/cart.svg" height="50" width="70" class="cart"><p id="cart-item" style="margin-top:-50px; margin-left:220px; background-color: #ca1f08; color: #ffffff; border-radius: 4px;" class="badge badge-danger"></p></a>
-    <a href="sign.php"><img src="icons/user.svg" height="65" width="60" class="user"></a>
-    <a href="index.php" style="margin-top:24px" ><?php if(isset($_SESSION['customer_email']))
+    <?php if(isset($_SESSION['customer_email']))
     {
-      echo "HI, ". strtoupper($user);
+      echo "  ";
+    }
+    else
+    {
+      echo "<a href='sign.php'><img src='icons/user.svg' height='65' width='100' class='user'></a>";
+    } ?>
+    
+    <a href="home.php" style="margin-top:24px" ><?php if(isset($_SESSION['customer_email']))
+    {
+      echo "&emsp;&emsp; Hi, ". strtoupper($user);
     }
     else
     {
@@ -193,38 +338,82 @@ if(isset($_SESSION['customer_email']))
         <li class="nav"><a href="hospitalservices.php">Hospital Services</a></li>
         <li class="nav"><a href="transport.php">Transport</a></li>
         <li class="nav"><a href="covid19test.php">Covid-19 Test</a></li>
-        <li class="nav"><a href="bookanurse.html">Book A Nurse</a></li>
-        <li class="nav"><a href="donation.html">Donation</a></li>
-        <li class="nav"><a href="helpdesk.html">Help Desk</a></li>
-        <li class="nav"><a href="about.html">About Us</a></li>
+        <li class="nav"><a href="bookanurse.php">Book A Nurse</a></li>
+        <li class="nav"><a href="donation.php">Donation</a></li>
+        <li class="nav"><a href="helpdesk.php">Help Desk</a></li>
+        <li class="nav"><a href="about.php">About Us</a></li>
     </ul>
 
+    <?php 
+
+      if(isset($_POST['bar']))
+      {
+          $valueToSearch = $_POST['bar'];
+          $query = "SELECT * FROM product_details WHERE pname like '%$valueToSearch%' OR descriptions like '%$valueToSearch%'";
+          $search_result = filterTable($query);
+      }
+      else if(isset($_POST['filter']))
+      {
+        $name = $_POST['filter'];
+        // $ord="asc";
+        if($name=="Price ↑")
+          {
+            $name="cost";
+            $ord="asc";
+          }
+        if($name=="Price ↓")
+          {
+            $name="cost";
+            $ord="desc";
+          }
+        if($name=="Name ↑")
+          {
+            $name="pname";
+            $ord="asc";
+          }
+        if($name=="Name ↓")
+          {
+            $name="pname";
+            $ord="desc";
+          }
+        $query = "SELECT * FROM product_details order by $name $ord";
+        $search_result = filterTable($query);
+      }
+      else
+      {
+          $query = "SELECT * FROM product_details";
+          $search_result = filterTable($query);
+
+      }
+
+      function filterTable($query)
+      {
+          include('connect.php');
+          $filter_Result = mysqli_query($con, $query);
+          return $filter_Result;
+      }
+
+      // include ('connect.php');
+      // $res=mysqli_query($con,"select * from product_details;");
+    ?>
+
+    <div style=" margin-left:20px; margin-top:10px; margin-bottom:10px">
+    <form class="filterform" action="goods.php" method="post">
+    <details class="dropdown">
+    <summary role="button">
+      <img src="icons/filter.svg" alter="Sort" height=40 width=100 />
+    </summary>
+        <ul>
+          <li><input type="submit" class="filterbutton" name="filter" value="Price ↑"></li>
+          <li><input type="submit" class="filterbutton" name="filter" value="Price ↓"></li>
+          <li><input type="submit" class="filterbutton" name="filter" value="Name ↑"></li>
+          <li><input type="submit" class="filterbutton" name="filter" value="Name ↓"></li>
+      </ul>
+    </details>
+    </div>
+    </form>
   <ul class="cards">
-          <?php 
-
-            if(isset($_POST['bar']))
-            {
-                $valueToSearch = $_POST['bar'];
-                $query = "SELECT * FROM product_details WHERE pname like '%$valueToSearch%' OR descriptions like '%$valueToSearch%'";
-                $search_result = filterTable($query);
-            }
-            else 
-            {
-                $query = "SELECT * FROM product_details";
-                $search_result = filterTable($query);
-
-            }
-
-            function filterTable($query)
-            {
-                include('connect.php');
-                $filter_Result = mysqli_query($con, $query);
-                return $filter_Result;
-            }
-
-          // include ('connect.php');
-          // $res=mysqli_query($con,"select * from product_details;");
-          while($row=mysqli_fetch_array($search_result)):?>
+          <?php while($row=mysqli_fetch_array($search_result)):?>
           <li>
             <div class="card">
               <img src=<?php echo $row['image'];?> class="card__image" alt="" />
@@ -240,13 +429,14 @@ if(isset($_SESSION['customer_email']))
                 <p class="card__description"><?php echo $row['descriptions'];?></p>
               <form action="" class="form-submit">
                 <div style="margin-left:50px">Quantity:
-                <input type="number" style="width:130px; border-radius:6px; border-color:#FF7527; padding:4px" class="form-control pqty" value="1"></div>
-                <input type="hidden" class="pid" value="<?= $row['product_id'] ?>">
-                <input type="hidden" class="pname" value="<?= $row['pname'] ?>">
-                <input type="hidden" class="pprice" value="<?= $row['cost'] ?>">
-                <input type="hidden" class="pimage" value="<?= $row['image'] ?>">
-                <input type="hidden" class="pcode" value="<?= $row['product_id'] ?>">
-                <a href="" class="addItemBtn"><center><img src="icons/add.svg" class="add_cart" alt="Add to cart" width=220px height=80px style="margin-top:0px;" /></center></a>
+                  <input type="number" style="width:130px; border-radius:6px; border-color:#FF7527; padding:4px" class="form-control pqty" value="1"></div>
+                  <input type="hidden" class="pid" value="<?= $row['product_id'] ?>">
+                  <input type="hidden" class="pname" value="<?= $row['pname'] ?>">
+                  <input type="hidden" class="pprice" value="<?= $row['cost'] ?>">
+                  <input type="hidden" class="pimage" value="<?= $row['image'] ?>">
+                  <input type="hidden" class="pcode" value="<?= $row['product_id'] ?>">
+                  <center><button class="cartbt"><img class = "cartIcon" src = "icons/addcart.svg"></button></center>
+                <!-- <a href="" class="addItemBtn"><center><img src="icons/add.svg" class="add_cart" alt="Add to cart" width=220px height=80px style="margin-top:0px;" /></center></a> -->
               </form>
               </div>
           </div>

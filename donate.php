@@ -13,7 +13,7 @@
         {
 
         echo "<script>alert('Donation Successfull')</script>";
-        include 'donation.html';
+        include 'donation.php';
         } 
         else 
         {
