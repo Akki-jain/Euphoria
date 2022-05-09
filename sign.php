@@ -100,7 +100,7 @@
 			<span>or use your account</span>
 			<input type="text" placeholder="Username" name="username" />
 			<input type="password" placeholder="Password" name="password" />
-			<a href="#">Forgot your password?</a>
+			<a href="forgot.php">Forgot your password?</a>
 			<button name="login" value="Sign In" class="btn btn-primary" style="border-radius: 30px; background-color: #FF7527; color: white; font-size: 12px; font-weight: bold; padding: 14px 20px; letter-spacing: 1px; text-transform: uppercase;transition: transform 80ms ease-in; width: 142px;">Sign In</button>
 		</form>
 	</div>

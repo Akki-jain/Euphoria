@@ -455,7 +455,7 @@ if(isset($_SESSION['customer_email']))
   $(document).ready(function() {
 
     // Send product details in the server
-    $(".addItemBtn").click(function(e) {
+    $(".cartbt").click(function(e) {
       e.preventDefault();
       var $form = $(this).closest(".form-submit");
       var pid = $form.find(".pid").val();
